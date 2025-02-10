@@ -3,7 +3,7 @@ import "./printerAnimation.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
-import { animateCircle, printer } from "../../source";
+import { animateCircle, printer } from "../../../source";
 gsap.registerPlugin(ScrollTrigger);
 
 const PrinterAnimation = () => {
