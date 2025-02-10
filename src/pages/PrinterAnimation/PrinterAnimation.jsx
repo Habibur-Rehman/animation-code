@@ -38,8 +38,8 @@ const PrinterAnimation = () => {
         // scaleX: 0.5,
         // scaleY: 0.7,
         opacity: 1,
-        duration: 2,
-        ease: "power2.out",
+        duration: 3,
+        ease: "power1.out",
       }
     );
 
