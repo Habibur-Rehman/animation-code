@@ -1,0 +1,57 @@
+@import "../../../common.scss";
+
+.testing_sec2 {
+  margin-top: 15em;
+  overflow: hidden;
+  position: relative;
+  min-height: 100dvh;
+  padding: 0 0 100em 0 !important;
+  .sticky_circle {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    overflow: hidden;
+    // position: relative;
+    position: absolute;
+    .sticky_circle_element {
+      transform: scale(0.3);
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: absolute;
+      top: -6%;
+    }
+    .absolute_img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s;
+      position: absolute;
+      inset: 0%;
+    }
+    .printer {
+      width: 100%;
+      max-width: 59.5em;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .printer_row {
+    padding-top: 10em;
+    opacity: 0;
+    .left_box {
+      overflow: hidden;
+      // position: relative;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+
