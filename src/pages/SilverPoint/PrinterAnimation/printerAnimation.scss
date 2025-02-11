@@ -3,6 +3,8 @@
 .testing_sec1 {
   margin-top: 15em;
   overflow: hidden;
+  position: relative;
+  min-height: 100dvh;
   .sticky_circle {
     justify-content: center;
     align-items: center;
@@ -10,7 +12,8 @@
     height: 100dvh;
     display: flex;
     overflow: hidden;
-    position: relative;
+    // position: relative;
+    position: absolute;
     .sticky_circle_element {
       transform: scale(0.3);
       justify-content: flex-start;
@@ -39,8 +42,10 @@
 
   .printer_row {
     padding-top: 10em;
+    opacity: 0;
     .left_box {
       overflow: hidden;
+      // position: relative;
     }
     img {
       max-width: 100%;
