@@ -5,6 +5,7 @@ import { printedPage } from "../../source";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImageSequence from "../../components/Gsap/ImageSequence/ImageSequence";
+import ImageSequence_2 from "../../components/Gsap/ImageSequence/ImageSequence_2";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,6 +113,8 @@ const HomePage = () => {
       </section> */}
 
       <section className="home_sec3"><ImageSequence /></section>
+
+      <section className="home_sec4"><ImageSequence_2 /></section>
     </>
   );
 };
