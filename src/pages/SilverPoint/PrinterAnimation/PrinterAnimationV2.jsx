@@ -166,20 +166,20 @@ const PrinterAnimationV2 = () => {
             height: "auto",
             // width: "120%",
             opacity: 1,
-            duration: 3,
+            duration: 1,
             transformOrigin: "0 100%",
             ease: "power2.inOut",
-            scrollTrigger: {
-              trigger: circleRef.current,
-              start: "top 40%",
-              end: "bottom 30%",
-              // start: "top 40%",
-              // end: "bottom 30%",
-              scrub: 1.5,
-              // pin:".printer_row",
-              // pin: ".testing_sec2",
-              // anticipatePin: 1, // Smooth pin transition
-            },
+            // scrollTrigger: {
+            //   trigger: circleRef.current,
+            //   start: "top 40%",
+            //   end: "bottom 30%",
+            //   // start: "top 40%",
+            //   // end: "bottom 30%",
+            //   scrub: 1.5,
+            //   // pin:".printer_row",
+            //   // pin: ".testing_sec2",
+            //   // anticipatePin: 1, // Smooth pin transition
+            // },
           });
         // }, 100); 
       },
@@ -228,15 +228,15 @@ const PrinterAnimationV2 = () => {
           // height: "100%",
           // width: "110%",
           opacity: 1,
-          duration: 3,
+          duration: 1,
           transformOrigin: "0 100%",
           ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: circleRef.current,
-            start: "bottom 30%",
-            end: "top 40%",
-            scrub: 1.5,
-          },
+          // scrollTrigger: {
+          //   trigger: circleRef.current,
+          //   start: "bottom 30%",
+          //   end: "top 40%",
+          //   scrub: 1.5,
+          // },
         });
       },
     });

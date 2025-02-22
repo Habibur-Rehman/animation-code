@@ -1,0 +1,11 @@
+.img_wrapper {
+  position: relative;
+  .title {
+    color: black;
+    font-size: 5em;
+    font-weight: 700;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+  }
+}
