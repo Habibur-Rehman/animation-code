@@ -17,3 +17,6 @@ export { default as frame06 } from "./images/ImageSequence/frame_005.png";
 export { default as frame07 } from "./images/ImageSequence/frame_006.png";
 export { default as frame08 } from "./images/ImageSequence/frame_007.png";
 
+// Map animation
+export { default as Presense } from "./images/MapAnimation/globe.png";
+

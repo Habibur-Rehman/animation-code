@@ -1,0 +1,154 @@
+.mapanim_container {
+  .tab_Wrapper {
+    display: flex;
+  }
+  .tab_name {
+    font-size: 2em;
+    font-weight: 600;
+    margin-right: 0.5em;
+    cursor: pointer;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.active {
+      color: dodgerblue;
+    }
+  }
+  .map {
+    position: relative;
+  }
+  .map-pins {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .map-pins .locationBx {
+    /* width: 13vw; */
+    width: 13em;
+    padding: 0.8854166666666666vw 0.270833vw 0.8333333333333334vw 0.270833vw;
+
+    //
+    position: absolute;
+    width: 21em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: dodgerblue;
+    box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.1607843137);
+    border-radius: 20px;
+    opacity: 1;
+    right: 25%;
+    top: 11%;
+    padding: 10px 10px;
+  }
+
+  .locationBx h1 {
+    color: #fff;
+    font-size: 24px;
+    font: normal normal normal 24px/30px Secular One;
+  }
+
+  .map-pins svg.arrowSvg {
+    color: dodgerblue !important;
+    position: absolute;
+    font-size: 2.1vw;
+  }
+
+  .map-location-marker {
+    background: url("../../source/images/MapAnimation/location-icon.png")
+      no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    // height: 1.875em;
+    height: 2.25em;
+    margin-top: -1.875em;
+    margin-left: -0.7857142857em;
+    width: 1.875em;
+    z-index: 3;
+  }
+
+  .map-location-marker:after {
+    -webkit-animation: pulsate 2s ease-in-out infinite;
+    -moz-animation: pulsate 2s ease-in-out infinite;
+    animation: pulsate 2s ease-in-out infinite;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    content: "";
+    display: block;
+    height: 31px;
+    left: -5px;
+    opacity: 0;
+    position: absolute;
+    top: -7px;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+    width: 31px;
+    z-index: 2;
+  }
+
+  @-webkit-keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulsate {
+    0% {
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+      opacity: 1;
+    }
+
+    100% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .mapanim_container {
+    .map-pins svg.arrowSvg {
+      font-size: 4.1vw;
+    }
+
+    .map-pins .locationBx {
+      width: 6em;
+    }
+
+    .map-pins .locationBx h1 {
+      font: normal normal normal 3.7333333333333334vw/1 Secular One;
+    }
+  }
+}
