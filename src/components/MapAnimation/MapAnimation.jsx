@@ -291,17 +291,17 @@ const MapAnimation = () => {
                     <div>
                       <a
                         onMouseEnter={() => handleMouseOver(mark.id)}
-                        onMouseLeave={() => handleMouseOut()}
+                        // onMouseLeave={() => handleMouseOut()}
                         style={{
                           left: `${mark.left}vw`,
                           top: `${mark.top}%`,
                           cursor: "pointer",
                         }}
                         class="map-location-marker animated"
-                        data-map-title="San Francisco"
-                        data-map-link="san-francisco"
-                        data-map-image="san-francisco.jpg"
-                        data-job-listings="https://westernunion.taleo.net/careersection/10045/jobsearch.ftl?&src=CWS-10230"
+                        // data-map-title="San Francisco"
+                        // data-map-link="san-francisco"
+                        // data-map-image="san-francisco.jpg"
+                        // data-job-listings="https://westernunion.taleo.net/careersection/10045/jobsearch.ftl?&src=CWS-10230"
                       ></a>
 
                       {/* {showLocation == mark.name && <> */}
