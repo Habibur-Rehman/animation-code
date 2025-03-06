@@ -8,3 +8,12 @@ export { default as mutualLearning } from "./images/AccordionImagePositionChange
 export { default as respect } from "./images/AccordionImagePositionChange/Respect.svg";
 export { default as trust } from "./images/AccordionImagePositionChange/Trust.svg";
 
+export { default as frame01 } from "./images/ImageSequence/frame_000.png";
+export { default as frame02 } from "./images/ImageSequence/frame_001.png";
+export { default as frame03 } from "./images/ImageSequence/frame_003.png";
+export { default as frame04 } from "./images/ImageSequence/frame_002.png";
+export { default as frame05 } from "./images/ImageSequence/frame_004.png";
+export { default as frame06 } from "./images/ImageSequence/frame_005.png";
+export { default as frame07 } from "./images/ImageSequence/frame_006.png";
+export { default as frame08 } from "./images/ImageSequence/frame_007.png";
+
