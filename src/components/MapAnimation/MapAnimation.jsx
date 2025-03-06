@@ -291,7 +291,7 @@ const MapAnimation = () => {
                     <div>
                       <a
                         onMouseEnter={() => handleMouseOver(mark.id)}
-                        // onMouseLeave={() => handleMouseOut()}
+                        onMouseLeave={() => handleMouseOut()}
                         style={{
                           left: `${mark.left}vw`,
                           top: `${mark.top}%`,
