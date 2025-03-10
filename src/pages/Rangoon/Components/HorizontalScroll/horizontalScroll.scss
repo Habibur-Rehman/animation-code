@@ -1,0 +1,99 @@
+// html, body {
+//     overflow-x: hidden;
+//     margin: 0;
+//   }
+
+.horizontal_scroll_container {
+  overflow-x: hidden;
+  .scroll-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .panels-container {
+    display: flex;
+    flex-direction: row;
+    min-width: 400vw; // Ensures all panels are in a single row
+    height: 100vh;
+  }
+
+  .panel {
+    width: 100vw; // Each panel takes full viewport width
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .purple {
+    background-color: purple;
+  }
+
+  .firstContainer,
+  .lastContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: yellow;
+  }
+}
+
+// ==================================================
+.Industries-box {
+  width: 537px;
+  min-width: 537px;
+  padding: 0 120px 0 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.Industries-box.box-ver-2 {
+  flex-direction: column-reverse;
+}
+.Industries-box .ind-box-inner {
+    padding: 0 0 40px;
+}
+.Industries-box.box-ver-2 .ind-box-inner {
+    padding: 40px 0 0;
+}
+.Industries-box .ind-box-inner h3 {
+    padding: 0 0 16px;
+    color: brown;
+    letter-spacing: -.04em;
+    line-height: 117%;
+}
+.btnbox {
+    position: relative;
+    display: flex;
+}
+.Industries-box .ind-box-inner .btnbox {
+    padding: 24px 0 0;
+}
+.Industries-box .img {
+    width: 100%;
+    min-height: 240px;
+    display: block;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
