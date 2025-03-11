@@ -1,0 +1,141 @@
+.scroll_numb_container {
+  overflow-x: hidden;
+  position: relative;
+  .scroll-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .panels-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 100%; // Ensures all panels are in a single row
+    // height: 100vh;
+    padding-left: 5em;
+    padding-top: 3.6em;
+    // border-top: 1px solid #00000044;
+    .title {
+      font-size: 2.25em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .panel {
+    width: 50%; // Each panel takes full viewport width
+    min-width: 50%;
+    // height: 100vh;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    // font-size: 2rem;
+    // font-weight: bold;
+    padding-right: 2em;
+    position: relative;
+    &::before {
+      content: "";
+      background-color: #00000044;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      top: -3.5vw;
+      left: 0;
+    }
+    .content_wrapper {
+      position: relative;
+      &::before {
+        content: "";
+        width: 1.25vw;
+        height: 1.25vw;
+        border-radius: 1.25vw;
+        background-color: white;
+        border: 1px solid #000;
+        display: block;
+        position: absolute;
+        top: -4vw;
+        // z-index: 2;
+      }
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .purple {
+    background-color: purple;
+  }
+
+  .firstContainer,
+  .lastContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: yellow;
+  }
+}
+
+// =============================================
+// .progress-indicator {
+//     position: absolute;
+//     top: 5em;
+// }
+  
+  /* Fixed Circular Progress */
+  .progress-indicator {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    // width: 50px;
+    // height: 50px;
+    width: 9em;
+    height: 9em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-ring {
+    transform: rotate(-90deg);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .progress-background {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.2);
+  }
+  
+  .progress-circle {
+    fill: none;
+    stroke: black;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+  }
+  
+  .progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+// =============================================

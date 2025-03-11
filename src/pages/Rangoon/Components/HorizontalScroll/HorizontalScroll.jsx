@@ -25,7 +25,7 @@ const HorizontalScroll = () => {
           pin: true,
           scrub: 1,
           anticipatePin: 1,
-          markers: true, // Remove in production
+          // markers: true, 
         },
       });
     });
