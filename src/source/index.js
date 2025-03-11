@@ -22,4 +22,6 @@ export { default as Presense } from "./images/MapAnimation/globe_2.png";
 
 // Rangoon
 export { default as rangoonMap01 } from "./images/Rangoon/map1.png";
+export { default as rangoonMap02 } from "./images/Rangoon/map2.png";
+export { default as MapLocation01_1 } from "./images/Rangoon/Map-location_1_1.svg";
 

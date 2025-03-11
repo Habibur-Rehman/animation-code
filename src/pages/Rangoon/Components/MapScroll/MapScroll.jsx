@@ -2,6 +2,7 @@ import { useLayoutEffect } from "react";
 import "./mapScroll.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MapLocation01_1, rangoonMap01, rangoonMap02 } from "../../../../source";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -13,6 +14,7 @@ const MapScroll = () => {
         trigger: ".map-container",
         start: "top top",
         end: "+=300%",
+        // end: "bottom center",
         pin: true,
         anticipatePin: 1,
         scrub: 1,
@@ -57,20 +59,14 @@ const MapScroll = () => {
         <div className="map_component">
           <div className="map-screen-1">
             <img
-              src="../cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4b0e858579eefb13b_Map.png"
+              src={rangoonMap01}
               loading="lazy"
               sizes="94vw"
-              srcset="
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4b0e858579eefb13b_Map-p-500.png   500w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4b0e858579eefb13b_Map-p-800.png   800w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4b0e858579eefb13b_Map-p-1080.png 1080w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4b0e858579eefb13b_Map.png        1906w
-                "
               alt="A black and white map of the world"
               className="map_image first-map"
             />
             <img
-              src="https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/67120b7bd5eb1895e4b190f4_Map-location.svg"
+              src={MapLocation01_1}
               loading="lazy"
               alt=""
               className="map_image first-location hide-mobile-portrait"
@@ -84,15 +80,9 @@ const MapScroll = () => {
           </div>
           <div className="map-screen-2">
             <img
-              src="../cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4be284c7be1606533_Map2.png"
+              src={rangoonMap02}
               loading="lazy"
               sizes="94vw"
-              srcset="
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4be284c7be1606533_Map2-p-500.png   500w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4be284c7be1606533_Map2-p-800.png   800w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4be284c7be1606533_Map2-p-1080.png 1080w,
-                  https://cdn.prod.website-files.com/66f2c9f174a3db1620fac1d8/671225d4be284c7be1606533_Map2.png        1906w
-                "
               alt="A blue dotted world map on a black background"
               className="map_image second-map"
             />
