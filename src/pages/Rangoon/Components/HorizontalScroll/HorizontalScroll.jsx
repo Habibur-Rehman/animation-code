@@ -114,7 +114,7 @@ const HorizontalScroll = () => {
       </div>
 
       {/* Final Vertical Section */}
-      <div className="lastContainer">Last Container</div>
+      {/* <div className="lastContainer">Last Container</div> */}
     </div>
   );
 };

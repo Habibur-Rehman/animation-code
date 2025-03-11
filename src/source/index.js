@@ -20,3 +20,6 @@ export { default as frame08 } from "./images/ImageSequence/frame_007.png";
 // Map animation
 export { default as Presense } from "./images/MapAnimation/globe_2.png";
 
+// Rangoon
+export { default as rangoonMap01 } from "./images/Rangoon/map1.png";
+
