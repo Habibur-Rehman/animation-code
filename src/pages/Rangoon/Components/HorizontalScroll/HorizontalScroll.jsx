@@ -57,8 +57,8 @@ const HorizontalScroll = () => {
         <div className="panels-container" ref={panelsRef}>
           <section className="panel">
             <div>
-              <h1>test heading</h1>
-              <p>
+              <h1 className="title">Scroll Up or Down</h1>
+              <p className="desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
                 quo in quia aperiam deserunt incidunt vel perspiciatis omnis,
                 cupiditate laborum alias error aspernatur, harum inventore ex

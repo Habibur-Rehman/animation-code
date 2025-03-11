@@ -19,6 +19,14 @@
     flex-direction: row;
     min-width: 100%; // Ensures all panels are in a single row
     height: 100vh;
+    .title {
+      font-size: 2.25em;
+      margin-bottom: 0.5em;
+    }
+    .desc {
+      font-size: 1.25em;
+      margin-bottom: 1em;
+    }
   }
 
   .panel {
@@ -28,8 +36,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    font-weight: bold;
+    // font-size: 2rem;
+    // font-weight: bold;
     padding-right: 2em;
     img {
         max-width: 100%;
@@ -62,42 +70,3 @@
   }
 }
 
-// ==================================================
-.Industries-box {
-  width: 537px;
-  min-width: 537px;
-  padding: 0 120px 0 0;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.Industries-box.box-ver-2 {
-  flex-direction: column-reverse;
-}
-.Industries-box .ind-box-inner {
-    padding: 0 0 40px;
-}
-.Industries-box.box-ver-2 .ind-box-inner {
-    padding: 40px 0 0;
-}
-.Industries-box .ind-box-inner h3 {
-    padding: 0 0 16px;
-    color: brown;
-    letter-spacing: -.04em;
-    line-height: 117%;
-}
-.btnbox {
-    position: relative;
-    display: flex;
-}
-.Industries-box .ind-box-inner .btnbox {
-    padding: 24px 0 0;
-}
-.Industries-box .img {
-    width: 100%;
-    min-height: 240px;
-    display: block;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
