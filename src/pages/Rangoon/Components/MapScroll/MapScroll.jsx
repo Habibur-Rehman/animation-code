@@ -18,7 +18,7 @@ const MapScroll = () => {
         pin: true,
         anticipatePin: 1,
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
     });
 

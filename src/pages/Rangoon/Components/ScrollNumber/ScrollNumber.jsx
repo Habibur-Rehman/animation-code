@@ -26,7 +26,7 @@ const ScrollNumber = () => {
           pin: true,
           scrub: 1,
           anticipatePin: 1,
-          markers: true, // Remove in production
+          // markers: true, 
           onUpdate: (self) => {
             let progressPercent = self.progress;
             setProgress(progressPercent);

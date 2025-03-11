@@ -1,3 +1,7 @@
+// General Images
+export { default as leftArrow } from "./images/general/left_arrow.svg";
+export { default as rightArrow } from "./images/general/right_arrow.svg";
+
 // Printer Animation Images
 export { default as animateCircle } from "./images/printer-animation/TidalHouseViews.jpg";
 export { default as printer } from "./images/printer-animation/printer.png";
