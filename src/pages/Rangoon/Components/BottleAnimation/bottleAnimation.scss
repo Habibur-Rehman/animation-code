@@ -1,0 +1,47 @@
+.bottle_container {
+  position: relative;
+  padding: 5em 0;
+  .bottle_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .bottle_img {
+      width: 100%;
+      max-width: 20%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .bottle_scroll_wrapper {
+      position: relative;
+    //   min-width: 20%;
+    //   max-width: 20%;
+    //   height: 20.5em;
+    }
+
+    .bottle_green {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      transition: 0.5s ease;
+    }
+
+    .bottle_green.fixed {
+        transition: 0.5s ease;
+        z-index: 999;
+    }
+
+    .bottle_green.inside {
+      position: absolute;
+      top: auto;
+      bottom: 2em;
+      // left: auto;
+      // transform: none;
+      // z-index: auto;
+      transition: 0.5s ease;
+      z-index: 999;
+    }
+  }
+}

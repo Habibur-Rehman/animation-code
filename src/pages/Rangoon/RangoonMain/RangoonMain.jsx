@@ -1,3 +1,4 @@
+import BottleAnimation from "../Components/BottleAnimation/BottleAnimation";
 import HorizontalScroll from "../Components/HorizontalScroll/HorizontalScroll";
 import IcreamImages from "../Components/IcreamImages/IcreamImages";
 import MapScroll from "../Components/MapScroll/MapScroll";
@@ -9,10 +10,11 @@ const RangoonMain = () => {
   return (
     <>
       <div className="App rangoon_container">
-        <IcreamImages />
-        <ProgressSwiper />
-        <MapScroll />
         <HorizontalScroll />
+        <BottleAnimation />
+        <MapScroll />
+        <ProgressSwiper />
+        <IcreamImages />
         <ScrollNumber />
       </div>
     </>

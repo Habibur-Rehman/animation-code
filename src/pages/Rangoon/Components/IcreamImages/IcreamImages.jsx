@@ -60,14 +60,14 @@ const IcreamImages = () => {
         trigger: canvas,
         // trigger: ".icream_img_container",
         start: "top top",
-        end: "bottom 50%",
+        end: "bottom 40%",
         // end: "+=300%",
         // end: "+=" + frameCount * 10 + "%",
         scrub: 3,
         pin: ".icream_img_container",
         pinSpacing: true,
         // anticipatePin: 1,
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -81,7 +81,7 @@ const IcreamImages = () => {
         ease: "power2.out",
         duration: 4,
         onUpdate: render,
-        stagger: 2,
+        stagger: 3,
       }
     );
 

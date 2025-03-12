@@ -107,9 +107,9 @@ const HorizontalScroll = () => {
               </p>
             </div>
           </section>
-          <section className="panel red">ONE</section>
+          {/* <section className="panel red">ONE</section>
           <section className="panel orange">TWO</section>
-          <section className="panel purple">THREE</section>
+          <section className="panel purple">THREE</section> */}
         </div>
       </div>
 
