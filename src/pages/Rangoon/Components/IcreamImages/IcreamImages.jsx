@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const IcreamImages = () => {
   const canvasRef = useRef(null);
-  const frameCount = 40; // Number of frames in the sequence
+  const frameCount = 91; // Number of frames in the sequence
   const images = useRef([]); // Store preloaded images
   const imageSeq = { frame: 0 }; // Track current frame
   const [imagesLoaded, setImagesLoaded] = useState(false); // Track loading status
@@ -17,7 +17,7 @@ const IcreamImages = () => {
     let loadedImages = 0;
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
-      //   img.src = `/ImageSequence/frame_${i.toString().padStart(3, "0")}.png`; // Adjust path if needed
+    //   img.src = `../../../../source/images/Rangoon/Smoov/smoov${i}-min.jpg`; 
       img.src = `/Smoov/smoov${i}-min.jpg`;
       img.onload = () => {
         loadedImages++;
@@ -60,12 +60,13 @@ const IcreamImages = () => {
         trigger: canvas,
         // trigger: ".icream_img_container",
         start: "top top",
-        end: "bottom bottom",
-        // end: "+=500%",
-        scrub: 2,
+        end: "bottom 50%",
+        // end: "+=300%",
+        // end: "+=" + frameCount * 10 + "%",
+        scrub: 3,
         pin: ".icream_img_container",
         pinSpacing: true,
-        anticipatePin: 1,
+        // anticipatePin: 1,
         markers: true,
       },
     });
@@ -107,15 +108,15 @@ const IcreamImages = () => {
   return (
     <>
       <div className="icream_img_container">
-        {/* <div className="img_container"> */}
-        {/* <p className="title">AirPods Pro </p> */}
-        {!imagesLoaded && <p>Loading animation...</p>}
-        <canvas
-          ref={canvasRef}
-          style={{ width: "100%", height: "auto" }}
-          className="canvas_img"
-        />
-        {/* </div> */}
+        <div className="img_container">
+          {/* <p className="title">AirPods Pro </p> */}
+          {!imagesLoaded && <p>Loading animation...</p>}
+          <canvas
+            ref={canvasRef}
+            style={{ width: "100%", height: "auto" }}
+            className="canvas_img"
+          />
+        </div>
       </div>
     </>
   );
