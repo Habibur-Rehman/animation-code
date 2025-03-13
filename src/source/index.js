@@ -30,4 +30,15 @@ export { default as rangoonMap02 } from "./images/Rangoon/map2.png";
 export { default as MapLocation01_1 } from "./images/Rangoon/Map-location_1_1.svg";
 export { default as bottle } from "./images/Rangoon/bottle.jpg";
 export { default as bottleGreen } from "./images/Rangoon/bottle_green.jpeg";
+export { default as bottlebg } from "./images/Rangoon/bottle/bg.png";
+export { default as bottle01 } from "./images/Rangoon/bottle/1.png";
+export { default as bottle02 } from "./images/Rangoon/bottle/2.png";
+export { default as bottle03 } from "./images/Rangoon/bottle/3.png";
+export { default as bottle04 } from "./images/Rangoon/bottle/4.png";
+export { default as bottle05 } from "./images/Rangoon/bottle/5.png";
+export { default as bottle06 } from "./images/Rangoon/bottle/6.png";
+export { default as bottle07 } from "./images/Rangoon/bottle/7.png";
+export { default as bottle08 } from "./images/Rangoon/bottle/8.png";
+export { default as bottle09 } from "./images/Rangoon/bottle/9.png";
+export { default as bottle10 } from "./images/Rangoon/bottle/10.png";
 

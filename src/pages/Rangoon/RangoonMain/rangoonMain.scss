@@ -1,3 +1,50 @@
 .rangoon_container {
-    overflow: hidden;
+  overflow: hidden;
+  position: relative;
+  .desc {
+    font-size: 2em;
+    padding-bottom: 1em;
+  }
+
+  .flex_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5em 0;
+    .desc {
+      max-width: 43%;
+    }
+  }
 }
+
+// ===============================
+.bottle_container_1 {
+  padding: 5em 0;
+  .bottle_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5em;
+    .bottle_img {
+      width: 100%;
+      max-width: 20%;
+      max-width: 5em;
+    }
+
+    .bottle_scroll_wrapper {
+      max-width: 5em;
+    }
+
+    .bottle_green {
+      position: fixed;
+      top: 15%;
+      left: 50%;
+      transform: translateX(-50%) scale(1.5);
+      // transform: translateX(-50%) rotateX(20deg);
+      z-index: 999;
+      // transition: 0.5s ease;
+      max-width: 5em;
+    }
+  }
+}
+
+// ===============================

@@ -11,7 +11,7 @@ const RangoonMain = () => {
     <>
       <div className="App rangoon_container">
         <HorizontalScroll />
-        <BottleAnimation />
+        {/* <BottleAnimation /> */}
         <MapScroll />
         <ProgressSwiper />
         <IcreamImages />
