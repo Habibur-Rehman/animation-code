@@ -41,4 +41,8 @@ export { default as bottle07 } from "./images/Rangoon/bottle/7.png";
 export { default as bottle08 } from "./images/Rangoon/bottle/8.png";
 export { default as bottle09 } from "./images/Rangoon/bottle/9.png";
 export { default as bottle10 } from "./images/Rangoon/bottle/10.png";
+export { default as orange } from "./images/Rangoon/orange.webp";
+export { default as coconoutleaf } from "./images/Rangoon/coconoutleaf.png";
+export { default as fanta } from "./images/Rangoon/fanta.png";
+export { default as leaf2 } from "./images/Rangoon/leaf2.png";
 

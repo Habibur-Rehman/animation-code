@@ -10,8 +10,31 @@
     display: flex;
     justify-content: space-between;
     padding: 5em 0;
+    position: relative;
     .desc {
       max-width: 43%;
+    }
+  }
+
+  .bottlecont2 {
+    .orange {
+      width: 100%;
+      max-width: 12em;
+      margin-right: 3em;
+    }
+    .coconout_leaf {
+      width: 100%;
+      max-width: 18em;
+      margin-right: 25em;
+    }
+    .fanta {
+      width: 100%;
+      max-width: 15em;
+      margin-right: 8em;
+    }
+    .leaf2 {
+      width: 100%;
+      max-width: 15em;
     }
   }
 }

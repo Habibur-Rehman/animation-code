@@ -2,7 +2,14 @@ import "./rangoonMain.scss";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { bottle01, bottle02 } from "../../../source";
+import {
+  bottle01,
+  bottle02,
+  coconoutleaf,
+  fanta,
+  leaf2,
+  orange,
+} from "../../../source";
 import { useEffect, useRef } from "react";
 import { useWindowSize } from "react-use";
 
@@ -31,6 +38,23 @@ const RangoonMainV2 = () => {
         // onLeaveBack: () => setIsFixed(true), // Reset bottle position when scrolling back up
       },
     });
+
+    // gsap.utils.toArray(".desc").forEach((desc) => {
+    //   tl.to(desc, {
+    //     y: -300,
+    //     scrub: 1,
+    //     duration: 5,
+    //     scrollTrigger: {
+    //       trigger: desc,
+    //       start: "97% 40%",
+    //       end: "108% 70%",
+    //       scrub: 5,
+    //       // markers: true,
+    //       pinSpacing: false,
+    //       pinSpacer: false,
+    //     },
+    //   });
+    // });
 
     tl.fromTo(
       ".bottle_green",
@@ -79,12 +103,12 @@ const RangoonMainV2 = () => {
         scrub: 5,
         scrollTrigger: {
           trigger: ".second",
-          start: "107% 30%",
-          end: "115% 70%",
+          start: "113.95% 30%",
+          end: "123% 70%",
           // start: `${width > 1366 ? "107% 30%" : "107% 30%"}`,
           // end: `${width > 1366 ? "116% 70%" : "115% 70%"}`,
           scrub: true,
-          // markers: true,
+          markers: true,
         },
       },
       "placed"
@@ -97,8 +121,85 @@ const RangoonMainV2 = () => {
       "placed"
     );
 
+    gsap.utils.toArray(".bottle_img").forEach((img, index) => {
+      tl.to(img, {
+        scrub: 5,
+        y: index * 40,
+        stagger: 2, // delay
+        // delay: index * 0.2,
+        scrollTrigger: {
+          trigger: ".bottle_container_1",
+          start: "60% 30%",
+          end: "180% 70%",
+          scrub: 3,
+          // markers: true,
+        },
+      });
+    });
+
+    tl.to([".third", ".fourth"], {
+      y: 200,
+      scrub: 1,
+      duration: 3,
+      scrollTrigger: {
+        trigger: ".third_fourth",
+        start: "-1% 40%",
+        end: "10% 70%",
+        scrub: 1,
+        // markers: true,
+      },
+    });
+
+    // gsap.utils.toArray(".float").forEach((float, index) => {
+      // note stagger doesn't work on loop
+      tl.to(".float", {
+        y: -200,
+        // y: index * -70,
+        scrub: 2,
+        // stagger: 0.5,
+        stagger: {
+          duration: 5,
+          each: 0.1,
+          from: "center",
+          ease: "power2.out",
+          // yoyo: true, // Animates forward, then reverses
+          // repeat: -1, // Repeats immediately, not waiting for the other staggered animations to finish
+        },
+        // delay: 0.5,
+        duration: 1,
+        ease: "power1.inOut",
+        scrollTrigger: {
+          trigger: ".bottlecont2",
+          start: "40% 50%",
+          end: "180% 70%",
+          scrub: 2,
+          // markers: true,
+        },
+      });
+    // });
+
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
+
+  // useEffect(() => {
+  //   const elements = document.querySelectorAll("[data-speed]");
+
+  //   gsap.to(elements, {
+  //     y: (i, el) =>
+  //       (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       trigger:".bottlecont2",
+  //       start: "10% 30%",
+  //       end: "150% 60%",
+  //       invalidateOnRefresh: true,
+  //       scrub: 1,
+  //       markers: true,
+  //     },
+  //   });
+
+  //   return () => ScrollTrigger.killAll(); // Cleanup
+  // }, []);
 
   return (
     <>
@@ -230,6 +331,24 @@ const RangoonMainV2 = () => {
           </div>
         </div>
 
+        <div className="bottlecont2">
+          <div className="my_container">
+            <img src={orange} alt="orange" className="float orange" />
+            <img
+              src={coconoutleaf}
+              alt="orange"
+              className="float coconout_leaf"
+            />
+            <img src={fanta} alt="fanta" className="float fanta" />
+            <img src={leaf2} alt="leaf" className="float leaf2" />
+
+            {/* <img src={orange} alt="orange" className="orange" data-speed="0.5" />
+            <img src={coconoutleaf} alt="orange" className="coconout_leaf" data-speed="1.1" />
+            <img src={fanta} alt="fanta" className="fanta" data-speed="1.1" />
+            <img src={leaf2} alt="leaf" className="leaf2"data-speed="1.5" /> */}
+          </div>
+        </div>
+
         <div className="bottle_container_1" ref={containerRef}>
           <div className="my_container">
             <div className="bottle_wrapper">
@@ -259,7 +378,7 @@ const RangoonMainV2 = () => {
         </div>
 
         <div className="my_container">
-          <div className="flex_container">
+          <div className="flex_container third_fourth">
             <p className="desc third">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
               quo mollitia beatae, quidem quis fugit temporibus consequuntur,
