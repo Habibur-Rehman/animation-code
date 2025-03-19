@@ -5,4 +5,5 @@ export const accordionIconURL= "/accordion-icon";
 export const mapURL= "/map";
 export const rangoonURL= "/rangoon";
 export const rangoonBottleURL= "/rangoon-bottle";
+export const archinzaURL= "/archinza";
 

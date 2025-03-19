@@ -46,3 +46,21 @@ export { default as coconoutleaf } from "./images/Rangoon/coconoutleaf.png";
 export { default as fanta } from "./images/Rangoon/fanta.png";
 export { default as leaf2 } from "./images/Rangoon/leaf2.png";
 
+export let images = {
+  archinzaGal01: {
+    image: require("./images/Archinza/alex-wong.png"),
+    alt: "gallery",
+  },
+  archinzaGal02: {
+    image: require("./images/Archinza/clay-banks.png"),
+    alt: "gallery",
+  },
+  archinzaGal03: {
+    image: require("./images/Archinza/laura-adai.png"),
+    alt: "gallery",
+  },
+  archinzaGal04: {
+    image: require("./images/Archinza/sean-pollock.png"),
+    alt: "gallery",
+  },
+};

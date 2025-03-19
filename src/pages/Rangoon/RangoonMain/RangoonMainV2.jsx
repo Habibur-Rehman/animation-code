@@ -108,7 +108,7 @@ const RangoonMainV2 = () => {
           // start: `${width > 1366 ? "107% 30%" : "107% 30%"}`,
           // end: `${width > 1366 ? "116% 70%" : "115% 70%"}`,
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       },
       "placed"
