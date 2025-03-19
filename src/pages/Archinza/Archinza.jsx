@@ -1,34 +1,43 @@
 import React, { useState } from "react";
 import "./archinza.scss";
 import { images } from "../../source";
-import { useLongPress } from "react-use";
+import { useLongPress } from "use-long-press"; // ✅ Correct library
+import { useWindowSize } from "react-use";
+
+const galleryData = [
+  { img: images.archinzaGal01.image },
+  { img: images.archinzaGal02.image },
+  { img: images.archinzaGal03.image },
+];
 
 const Arcinza = () => {
-  const [selected, setSelected] = useState(false);
-  const [selectedCount, setSelectedCount] = useState(0);
+  const { width } = useWindowSize();
+  const [isCount, setIsCount] = useState(0);
+  const [selectedItems, setSelectedItems] = useState(
+    new Array(galleryData.length).fill(false)
+  );
 
-  // Long press handler - toggles checkbox state
-  //   const longPressEvent = useLongPress(() => {
-  //     console.log("Long press detected!");
+  const handleCheckboxChange = (e) => {
+    if (e.target.checked) {
+      setIsCount((prevCount) => prevCount + 1);
+    } else {
+      setIsCount((prevCount) => prevCount - 1);
+    }
+  };
 
-  //     setSelected((prevSelected) => {
-  //       const newSelected = !prevSelected;
-  //       setSelectedCount((prevCount) => (newSelected ? prevCount + 1 : prevCount - 1));
-  //       return newSelected;
-  //     });
-  //   }, { delay: 500 });
-
+  // ✅ useLongPress must be called at the component level
   const longPressEvent = useLongPress(
-    () => {
-      setSelected((prevSelected) => {
-        const newSelected = !prevSelected;
+    (event, { context }) => {
+      const index = context; // Get the index from context
 
-        if (newSelected) {
-          console.log("Checkbox checked on long press!");
-          setSelectedCount((prevCount) => prevCount + 1);
+      setSelectedItems((prevSelected) => {
+        const newSelected = [...prevSelected];
+        newSelected[index] = !newSelected[index];
+
+        if (newSelected[index]) {
+          console.log(`✅ Checkbox at index ${index} checked on long press!`);
         } else {
-          console.log("Checkbox unchecked on long press!");
-          setSelectedCount((prevCount) => prevCount - 1);
+          console.log(`❌ Checkbox at index ${index} unchecked on long press!`);
         }
 
         return newSelected;
@@ -37,29 +46,47 @@ const Arcinza = () => {
     { delay: 500 }
   );
 
+  // ✅ Correct way to count selected checkboxes
+  const selectedCount = selectedItems.filter((isSelected) => isSelected).length;
+
   return (
     <section className="archinza_sec1">
       <div className="my_container">
         <form>
           <div className="row archin_row">
-            <div className="col-md-4 arcin_col">
-              <div className="box">
-                <img
-                  src={images.archinzaGal01.image}
-                  alt=""
-                  className="gal_img"
-                />
-
-                <div className="img_select_wrapper">
-                  <label className="checkbox_container" {...longPressEvent}>
-                    <input type="checkbox" checked={selected} readOnly />
-                    <span className="checkmark"></span>
-                  </label>
+            {galleryData.map((item, index) => (
+              <div className="col-md-4 arcin_col" key={index}>
+                <div className="box">
+                  <img src={item.img} alt="" className="gal_img" />
+                  {width <= 767 ? (
+                    <div className="img_select_wrapper">
+                      <label
+                        className="checkbox_container"
+                        {...longPressEvent(index)}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedItems[index]}
+                          readOnly
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                  ) : (
+                    <div className="img_select_wrapper">
+                      <label className="checkbox_container">
+                        <input
+                          type="checkbox"
+                          onChange={handleCheckboxChange}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-
           <h1 className="selected_text">{selectedCount} Image Selected</h1>
         </form>
       </div>
