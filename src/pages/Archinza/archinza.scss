@@ -9,19 +9,19 @@
           width: 100%;
           max-width: 100%;
         }
-        .circle {
-          border: 2px solid #fff;
-          border-radius: 50%;
-          width: 2.5em;
-          height: 2.5em;
-          position: absolute;
-          right: 1em;
-          bottom: 1em;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
+        // .circle {
+        //   border: 2px solid #fff;
+        //   border-radius: 50%;
+        //   width: 2.5em;
+        //   height: 2.5em;
+        //   position: absolute;
+        //   right: 1em;
+        //   bottom: 1em;
+        //   display: flex;
+        //   justify-content: center;
+        //   align-items: center;
+        //   cursor: pointer;
+        // }
 
         .img_select_wrapper {
           position: absolute;
@@ -73,6 +73,7 @@
         /* When the checkbox is checked, add a blue background */
         .checkbox_container input:checked ~ .checkmark {
           background-color: #2196f3;
+          border: none;
         }
 
         /* Create the checkmark/indicator (hidden when not checked) */
@@ -118,5 +119,27 @@
     padding: 0.5em 1em;
     text-align: center;
     margin: 0 auto;
+    white-space: nowrap;
+  }
+}
+
+// @media (max-width: 767px) {
+@media (max-width: 767px), (pointer: coarse) {
+  .archinza_sec1 {
+    .archin_row {
+      .arcin_col {
+        .box {
+          .checkmark {
+            border: none;
+            opacity: 0;
+            z-index: -1;
+          }
+          .checkbox_container input:checked ~ .checkmark {
+            opacity: 1;
+            z-index: 2;
+          }
+        }
+      }
+    }
   }
 }

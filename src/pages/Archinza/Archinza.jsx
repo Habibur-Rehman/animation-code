@@ -8,9 +8,18 @@ const galleryData = [
   { img: images.archinzaGal01.image },
   { img: images.archinzaGal02.image },
   { img: images.archinzaGal03.image },
+  { img: images.archinzaGal04.image },
+  { img: images.archinzaGal01.image },
+  { img: images.archinzaGal02.image },
+  { img: images.archinzaGal03.image },
+  { img: images.archinzaGal04.image },
+  { img: images.archinzaGal01.image },
+  { img: images.archinzaGal02.image },
+  { img: images.archinzaGal03.image },
+  { img: images.archinzaGal04.image },
 ];
 
-const Arcinza = () => {
+const Archinza = () => {
   const { width } = useWindowSize();
   const [isCount, setIsCount] = useState(0);
   const [selectedItems, setSelectedItems] = useState(
@@ -49,6 +58,9 @@ const Arcinza = () => {
   // ✅ Correct way to count selected checkboxes
   const selectedCount = selectedItems.filter((isSelected) => isSelected).length;
 
+  // To check the touch device
+  const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
   return (
     <section className="archinza_sec1">
       <div className="my_container">
@@ -57,12 +69,19 @@ const Arcinza = () => {
             {galleryData.map((item, index) => (
               <div className="col-md-4 arcin_col" key={index}>
                 <div className="box">
-                  <img src={item.img} alt="" className="gal_img" />
-                  {width <= 767 ? (
+                  <img
+                    src={item.img}
+                    alt=""
+                    className="gal_img"
+                    {...(isTouchDevice || width <= 767
+                      ? longPressEvent(index)
+                      : {})}
+                  />
+                  {isTouchDevice || width <= 767 ? (
                     <div className="img_select_wrapper">
                       <label
                         className="checkbox_container"
-                        {...longPressEvent(index)}
+                        // {...longPressEvent(index)}
                       >
                         <input
                           type="checkbox"
@@ -87,11 +106,14 @@ const Arcinza = () => {
               </div>
             ))}
           </div>
-          <h1 className="selected_text">{selectedCount} Image Selected</h1>
+          <h1 className="selected_text">
+            {isTouchDevice || width <= 767 ? selectedCount : isCount} Image
+            Selected
+          </h1>
         </form>
       </div>
     </section>
   );
 };
 
-export default Arcinza;
+export default Archinza;
