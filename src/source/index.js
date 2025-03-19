@@ -63,4 +63,18 @@ export let images = {
     image: require("./images/Archinza/sean-pollock.png"),
     alt: "gallery",
   },
+
+//   SilverPoint Press
+  logo01: {
+    image: require("./images/SilverPoint/Godrej_Logo.png"),
+    alt: "logo",
+  },
+  logo02: {
+    image: require("./images/SilverPoint/axis_bank.png"),
+    alt: "logo",
+  },
+  logo03: {
+    image: require("./images/SilverPoint/essar_steel.png"),
+    alt: "logo",
+  },
 };
