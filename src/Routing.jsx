@@ -8,7 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import MapAnimation from "./components/MapAnimation/MapAnimation";
 import RangoonMain from "./pages/Rangoon/RangoonMain/RangoonMain";
 import RangoonMainV2 from "./pages/Rangoon/RangoonMain/RangoonMainV2";
-import Archinza from "./pages/Archinza/Archinza";
+import Archinza from "./pages/Archinza/Archinza/Archinza";
 import SilverPointMain from "./pages/SilverPoint/SilverPointMain/SilverPointMain";
 
 const Routing = () => {

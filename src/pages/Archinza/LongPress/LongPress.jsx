@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./archinza.scss";
-import { images } from "../../source";
+import "./longPress.scss";
+import { images } from "../../../source";
 import { useLongPress } from "use-long-press"; // ✅ Correct library
 import { useWindowSize } from "react-use";
 
@@ -19,7 +19,7 @@ const galleryData = [
   { img: images.archinzaGal04.image },
 ];
 
-const Archinza = () => {
+const LongPress = () => {
   const { width } = useWindowSize();
   const [isCount, setIsCount] = useState(0);
   const [selectedItems, setSelectedItems] = useState(
@@ -62,12 +62,12 @@ const Archinza = () => {
   const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
   return (
-    <section className="archinza_sec1">
+    <section className="longpress_container">
       <div className="my_container">
         <form>
-          <div className="row archin_row">
+          <div className="row long_row">
             {galleryData.map((item, index) => (
-              <div className="col-md-4 arcin_col" key={index}>
+              <div className="col-md-4 long_col" key={index}>
                 <div className="box">
                   <img
                     src={item.img}
@@ -116,4 +116,4 @@ const Archinza = () => {
   );
 };
 
-export default Archinza;
+export default LongPress;

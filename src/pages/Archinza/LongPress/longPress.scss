@@ -1,7 +1,6 @@
-.archinza_sec1 {
-  padding: 7.5em 0 0;
-  .archin_row {
-    .arcin_col {
+.longpress_container {
+  .long_row {
+    .long_col {
       margin: 12px 0;
       .box {
         position: relative;
@@ -124,10 +123,11 @@
 }
 
 // @media (max-width: 767px) {
+// @media (max-width: 767px) and (pointer: coarse) {
 @media (max-width: 767px), (pointer: coarse) {
-  .archinza_sec1 {
-    .archin_row {
-      .arcin_col {
+  .longpress_container {
+    .long_row {
+      .long_col {
         .box {
           .checkmark {
             border: none;
