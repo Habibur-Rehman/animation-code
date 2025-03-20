@@ -61,7 +61,7 @@ const CircularLogo = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIsChanged((prev) => !prev);
-    }, 1000); // Change image every 1 second
+    }, 2000); // Change image every 1 second
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
@@ -90,7 +90,6 @@ const CircularLogo = () => {
               src={isChanged ? logo.src4 : logo.src}
               alt="logo"
               className={`logo_img ${isChanged ? "active" : ""}`}
-              // className="fade-transition"
             />
           </div>
         );

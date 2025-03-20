@@ -70,7 +70,7 @@
   }
 
   .logo-item {
-    transition: opacity 0.8s ease-in-out;
+    // transition: opacity 0.8s ease-in-out;
     .logo_img {
       width: 100%;
       height: auto;
@@ -78,14 +78,16 @@
       animation-name: fadeOut;
       animation-iteration-count: 1;
       animation-timing-function: ease;
-      animation-duration: 1s;
+      animation-duration: 2s;
+      transition: 0.5s ease;
       &.active {
         // animation: fade 0.5s ease;
+        opacity: 0;
         animation-name: fadeIn;
         animation-iteration-count: 1;
         animation-timing-function: ease;
-        animation-duration: 1s;
-        opacity: 0;
+        animation-duration: 2s;
+        transition: 0.5s ease;
       }
     }
 
