@@ -40,7 +40,7 @@ const SilverPointMain = () => {
               <div className="col-md-3 logo_col" key={i}>
                 <div
                   className={`logo_box ${
-                    isHover === i ? "active" : "bottomColor"
+                    isHover === i ? "active" : ""
                     // isHover === i ? "active" : isOut === i ? "bottomColor" : ""
                   }`}
                   onMouseEnter={() => handleMouseOver(i)}
