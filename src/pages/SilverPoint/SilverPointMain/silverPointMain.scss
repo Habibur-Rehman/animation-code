@@ -16,10 +16,11 @@
         &:hover {
           // &.active {
           &::before {
-            // transform: scaleY(1);
+            transform: scaleY(1);
+            transform-origin: 0 100%;
             // height: 100%;
             // bottom: 0;
-            animation: fillColor 0.3s linear forwards;
+            // animation: fillColor 0.3s linear forwards;
           }
           //   &::after {
           //     height: 0;
@@ -36,17 +37,25 @@
           content: "";
           background-color: #012094;
           border-radius: 20px;
-          width: 100%;
+          // width: 100%;
           //   height: 0;
+          // height: 100%;
+          display: block;
+          // mix-blend-mode: difference;
           position: absolute;
           left: 0;
-          //   top: 0;
-          //   transform: scaleY(0);
+          right: 0;
+          top: 0;
+          bottom: 0;
+          transform: scaleY(0);
           z-index: -1;
+
+          transform-origin: 0 0;
           //   transition: 0.65s ease cubic-bezier(.165,.84,.44,1);
           //   transition: 0.65s ease;
           //   transform-origin: bottom;
-          animation: fillColorReverse 0.3s linear 0.2s forwards;
+          // animation: fillColorReverse 0.3s linear 0.2s forwards;
+          transition: transform 0.65s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .logo {
           max-width: 15.3125em;
