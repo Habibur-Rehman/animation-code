@@ -1,0 +1,109 @@
+// .circle-container {
+//     position: relative;
+//     width: 400px;
+//     height: 400px;
+//     margin: 50px auto;
+//     border-radius: 50%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//   .logo-item {
+//     position: absolute;
+//     width: 60px; /* Adjust the logo size */
+//     height: 60px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   .logo-item img {
+//     width: 100%;
+//     height: auto;
+//   }
+// }
+
+//   =================================================
+.circle-container {
+  position: relative;
+  width: 50em;
+  height: 50em;
+  margin: 50px auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .outer_circle {
+    background-color: #f2faff;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -3;
+  }
+  .inner_circle {
+    background-color: #e9f4fa;
+    width: calc(100% - 150px);
+    height: calc(100% - 150px);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -2;
+  }
+
+  .small_circle {
+    background-color: #dcecf6;
+    width: calc(100% - 260px);
+    height: calc(100% - 260px);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .logo-item {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-item {
+    transition: opacity 0.8s ease-in-out;
+    .logo_img {
+      width: 100%;
+      height: auto;
+      opacity: 1;
+      animation-name: fadeOut;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-duration: 1s;
+      &.active {
+        // animation: fade 0.5s ease;
+        animation-name: fadeIn;
+        animation-iteration-count: 1;
+        animation-timing-function: ease;
+        animation-duration: 1s;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+}

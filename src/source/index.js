@@ -77,4 +77,20 @@ export let images = {
     image: require("./images/SilverPoint/essar_steel.png"),
     alt: "logo",
   },
+  logo04: {
+    image: require("./images/SilverPoint/Reliance_Industries.png"),
+    alt: "logo",
+  },
+  logo05: {
+    image: require("./images/SilverPoint/land_rover.png"),
+    alt: "logo",
+  },
+  logo06: {
+    image: require("./images/SilverPoint/welspun_logo.png"),
+    alt: "logo",
+  },
+  logo07: {
+    image: require("./images/SilverPoint/Raymond_logo.png"),
+    alt: "logo",
+  },
 };

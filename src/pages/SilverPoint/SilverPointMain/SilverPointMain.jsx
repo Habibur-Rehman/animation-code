@@ -2,6 +2,7 @@ import React from "react";
 import "./silverPointMain.scss";
 import { images } from "../../../source";
 import { useState } from "react";
+import CircularLogo from "../CircularLogo/CircularLogo";
 
 const logoData = [
   {
@@ -70,6 +71,12 @@ const SilverPointMain = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="silver_sec2">
+        <div className="my_container">
+          <CircularLogo />
         </div>
       </section>
     </>
