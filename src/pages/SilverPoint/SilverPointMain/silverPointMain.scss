@@ -24,6 +24,12 @@
           //   &::after {
           //     height: 0;
           //   }
+          .logo {
+            display: none;
+          }
+          .hover_logo {
+            display: block;
+          }
         }
         // &::after,
         &::before {
@@ -44,6 +50,11 @@
         }
         .logo {
           max-width: 15.3125em;
+          display: block;
+        }
+        .hover_logo {
+          max-width: 15.3125em;
+          display: none;
         }
         // &.bottomColor {
         //   &::before {

@@ -4,12 +4,30 @@ import { images } from "../../../source";
 import { useState } from "react";
 
 const logoData = [
-  images.logo01.image,
-  images.logo02.image,
-  images.logo03.image,
-  images.logo03.image,
-  images.logo02.image,
-  images.logo01.image,
+  {
+    img: images.logo01.image,
+    hoverImg: images.logo02.image,
+  },
+  {
+    img: images.logo02.image,
+    hoverImg: images.logo01.image,
+  },
+  {
+    img: images.logo03.image,
+    hoverImg: images.logo02.image,
+  },
+  {
+    img: images.logo03.image,
+    hoverImg: images.logo03.image,
+  },
+  {
+    img: images.logo02.image,
+    hoverImg: images.logo02.image,
+  },
+  {
+    img: images.logo01.image,
+    hoverImg: images.logo01.image,
+  },
 ];
 
 const SilverPointMain = () => {
@@ -46,7 +64,8 @@ const SilverPointMain = () => {
                   onMouseEnter={() => handleMouseOver(i)}
                   onMouseOut={() => handleMouseOut(null)}
                 >
-                  <img src={logo} alt="" className="logo" />
+                  <img src={logo.img} alt="" className="logo" />
+                  <img src={logo.hoverImg} alt="" className="hover_logo" />
                 </div>
               </div>
             ))}
