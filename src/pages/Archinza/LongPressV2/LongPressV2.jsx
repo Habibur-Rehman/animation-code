@@ -39,12 +39,23 @@ const LongPressV2 = () => {
   };
 
   const longPressEvent = useLongPress(
-    () => {
-      setIsActive(true);
-      // setIsDeActivate(true);
+    (e) => {
+      e.preventDefault();
+      setIsActive((prevState) => {
+        const newState = !prevState;
+        if (!newState) {
+          document
+            .querySelectorAll(".checkbox_container input")
+            .forEach((checkbox) => {
+              checkbox.checked = false;
+            });
+        }
+        return newState;
+      });
     },
     { delay: 500 }
   );
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
