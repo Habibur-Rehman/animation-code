@@ -75,18 +75,18 @@
       width: 100%;
       height: auto;
       opacity: 1;
-      animation-name: fadeOut;
-      animation-iteration-count: 1;
-      animation-timing-function: ease;
-      animation-duration: 2s;
+      // animation-name: fadeOut;
+      // animation-iteration-count: 1;
+      // animation-timing-function: ease;
+      // animation-duration: 2s;
       transition: 0.5s ease;
       &.active {
         // animation: fade 0.5s ease;
-        opacity: 0;
-        animation-name: fadeIn;
-        animation-iteration-count: 1;
-        animation-timing-function: ease;
-        animation-duration: 2s;
+        // opacity: 0;
+        // animation-name: fadeIn;
+        // animation-iteration-count: 1;
+        // animation-timing-function: ease;
+        // animation-duration: 2s;
         transition: 0.5s ease;
       }
     }

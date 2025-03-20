@@ -7,7 +7,7 @@ import CircularLogo from "../CircularLogo/CircularLogo";
 const logoData = [
   {
     img: images.logo01.image,
-    hoverImg: images.logo02.image,
+    hoverImg: images.logo08.image,
   },
   {
     img: images.logo02.image,

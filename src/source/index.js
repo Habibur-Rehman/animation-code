@@ -93,4 +93,8 @@ export let images = {
     image: require("./images/SilverPoint/Raymond_logo.png"),
     alt: "logo",
   },
+  logo08: {
+    image: require("./images/SilverPoint/Godrej_Logo_white.png"),
+    alt: "logo",
+  },
 };
