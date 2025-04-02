@@ -82,6 +82,7 @@
       transition: 0.5s ease;
       transform-origin: bottom;
       z-index: -1;
+      animation: scale-images-reverse 1.5s ease forwards;
       .hover_img_1 {
         position: absolute;
         left: 53%;
@@ -199,3 +200,24 @@
     transform: scale(1);
   }
 }
+
+@keyframes scale-images-reverse {
+    0% {
+      transform: scale(1);
+    }
+    // 15% {
+    //   transform: scale(1.05);
+    // }
+    // 30% {
+    //   transform: scale(1);
+    // }
+    // 40% {
+    //   transform: scale(1.05);
+    // }
+    // 50% {
+    //   transform: scale(1.1);
+    // }
+    100% {
+      transform: scale(0);
+    }
+  }
