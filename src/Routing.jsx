@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { accordionIconURL, archinzaURL, homeURL, mapURL, printerURL, printerV2URL, rangoonBottleURL, rangoonURL, silverPointURL } from "./helpers/paths";
+import { accordionIconURL, archinzaURL, homeURL, mapURL, printerURL, printerV2URL, rangoonBottleURL, rangoonHoverURL, rangoonURL, silverPointURL } from "./helpers/paths";
 import PrinterAnimation from "./pages/SilverPoint/PrinterAnimation/PrinterAnimation";
 import AccordionImagePositionChange from "./pages/SilverPoint/AccordionImagePositionChange/AccordionImagePositionChange";
 import PrinterAnimationV2 from "./pages/SilverPoint/PrinterAnimation/PrinterAnimationV2";
@@ -10,6 +10,7 @@ import RangoonMain from "./pages/Rangoon/RangoonMain/RangoonMain";
 import RangoonMainV2 from "./pages/Rangoon/RangoonMain/RangoonMainV2";
 import Archinza from "./pages/Archinza/Archinza/Archinza";
 import SilverPointMain from "./pages/SilverPoint/SilverPointMain/SilverPointMain";
+import RangoonHover from "./pages/Rangoon/RangoonHover/RangoonHover";
 
 const Routing = () => {
 
@@ -24,6 +25,7 @@ const Routing = () => {
         <Route path={silverPointURL} element={<SilverPointMain />} />
         <Route path={rangoonURL} element={<RangoonMain />} />
         <Route path={rangoonBottleURL} element={<RangoonMainV2 />} />
+        <Route path={rangoonHoverURL} element={<RangoonHover />} />
         <Route path={archinzaURL} element={<Archinza />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

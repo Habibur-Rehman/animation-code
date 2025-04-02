@@ -45,6 +45,17 @@ export { default as orange } from "./images/Rangoon/orange.webp";
 export { default as coconoutleaf } from "./images/Rangoon/coconoutleaf.png";
 export { default as fanta } from "./images/Rangoon/fanta.png";
 export { default as leaf2 } from "./images/Rangoon/leaf2.png";
+export { default as cream01 } from "./images/Rangoon/cream-1_1.png";
+export { default as cream02 } from "./images/Rangoon/cream-2.png";
+export { default as cream03 } from "./images/Rangoon/cream-3.png";
+export { default as cream04 } from "./images/Rangoon/cream-4.png";
+export { default as hover01 } from "./images/Rangoon/hover-1.png";
+export { default as hover02 } from "./images/Rangoon/hover-2.png";
+export { default as hover03 } from "./images/Rangoon/hover-3.png";
+export { default as hover04 } from "./images/Rangoon/hover-4.png";
+export { default as hover05 } from "./images/Rangoon/hover-5.png";
+export { default as hoverCircle } from "./images/Rangoon/hover_circle.png";
+export { default as triangle } from "./images/Rangoon/triangle.png";
 
 export let images = {
   archinzaGal01: {

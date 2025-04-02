@@ -6,5 +6,6 @@ export const mapURL= "/map";
 export const silverPointURL= "/silverpoint";
 export const rangoonURL= "/rangoon";
 export const rangoonBottleURL= "/rangoon-bottle";
+export const rangoonHoverURL= "/rangoon-hover";
 export const archinzaURL= "/archinza";
 
