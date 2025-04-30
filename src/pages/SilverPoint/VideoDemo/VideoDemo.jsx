@@ -16,23 +16,24 @@ const VideoDemo = () => {
         <video
           className="video_banner"
           width="100%"
-          height="100%"
+        //   height="100%"
           autoPlay
           muted
           loop
+          playsInline
           //   controls
         >
           <source
             className="video_source"
             src={
-              width > 767 ? silverpressDesktopVideo : silverpressDesktopVideo
+              width > 767 ? silverpressDesktopVideo : silverpressMobileVideo
             }
             type="video/mp4"
           />
         </video>
       </section>
 
-      <section className="video_sec2">
+      {/* <section className="video_sec2">
         <div className="my_container">
           <h2 className="title">Video 2</h2>
         </div>
@@ -43,6 +44,7 @@ const VideoDemo = () => {
           autoPlay
           muted
           loop
+          playsInline
           //   controls
         >
           <source
@@ -51,7 +53,7 @@ const VideoDemo = () => {
             type="video/mp4"
           />
         </video>
-      </section>
+      </section> */}
       <Footer />
     </>
   );
