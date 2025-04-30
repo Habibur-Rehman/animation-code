@@ -8,4 +8,5 @@ export const rangoonURL= "/rangoon";
 export const rangoonBottleURL= "/rangoon-bottle";
 export const rangoonHoverURL= "/rangoon-hover";
 export const archinzaURL= "/archinza";
+export const videoDemoURL= "/video-demo";
 

@@ -57,6 +57,16 @@ export { default as hover05 } from "./images/Rangoon/hover-5.png";
 export { default as hoverCircle } from "./images/Rangoon/hover_circle.png";
 export { default as triangle } from "./images/Rangoon/triangle.png";
 
+// Silver Press Images
+export { default as protransLogo } from "./images/SilverPoint/protransLogo_Blue.png";
+export { default as protransLogoWhite } from "./images/SilverPoint/protransLogo_White.png";
+export { default as downArrow } from "./images/SilverPoint/down_arrow.svg";
+export { default as callIcon } from "./images/SilverPoint/call_icon.png";
+export { default as mailIcon } from "./images/SilverPoint/mail_con.png";
+export { default as globeIcon } from "./images/SilverPoint/globe_icon.png";
+export { default as silverpressDesktopVideo } from "./video/silverpress_destop.mp4";
+export { default as silverpressMobileVideo } from "./video/silverpress_mobile.mp4";
+
 export let images = {
   archinzaGal01: {
     image: require("./images/Archinza/alex-wong.png"),
