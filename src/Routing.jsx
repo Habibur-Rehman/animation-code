@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { accordionIconURL, archinzaURL, homeURL, mapURL, printerURL, printerV2URL, rangoonBottleURL, rangoonHoverURL, rangoonURL, silverPointURL, videoDemoURL } from "./helpers/paths";
+import { accordionIconURL, archinzaURL, homeURL, mapURL, playlistURL, printerURL, printerV2URL, rangoonBottleURL, rangoonHoverURL, rangoonURL, silverPointURL, videoDemoURL } from "./helpers/paths";
 import PrinterAnimation from "./pages/SilverPoint/PrinterAnimation/PrinterAnimation";
 import AccordionImagePositionChange from "./pages/SilverPoint/AccordionImagePositionChange/AccordionImagePositionChange";
 import PrinterAnimationV2 from "./pages/SilverPoint/PrinterAnimation/PrinterAnimationV2";
@@ -12,6 +12,7 @@ import Archinza from "./pages/Archinza/Archinza/Archinza";
 import SilverPointMain from "./pages/SilverPoint/SilverPointMain/SilverPointMain";
 import RangoonHover from "./pages/Rangoon/RangoonHover/RangoonHover";
 import VideoDemo from "./pages/SilverPoint/VideoDemo/VideoDemo";
+import Rat from "./pages/Rat/Rat";
 
 const Routing = () => {
 
@@ -29,6 +30,7 @@ const Routing = () => {
         <Route path={rangoonHoverURL} element={<RangoonHover />} />
         <Route path={archinzaURL} element={<Archinza />} />
         <Route path={videoDemoURL} element={<VideoDemo />} />
+        <Route path={playlistURL} element={<Rat />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
