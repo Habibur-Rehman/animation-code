@@ -1,11 +1,34 @@
 import "./Rat.scss";
 import Header from "../../components/Header/Header";
+import ReactPlayer from "react-player";
 
+const selectedVideoId = [
+  "https://www.youtube.com/embed/KYJlWuftUz8?si=myrx7XEB8mW694QI",
+  "https://www.youtube.com/embed/o7pYH5Zzq94?si=wIllX8pkslSHubtz",
+  "https://www.youtube.com/embed/FBkYqecteGk?si=kV9QrUqryziIQPNk",
+  // "PLVkFiLwHlEIU5pTC6GxYzicF1jwTpmKeC",
+  // "SmLI721X1aLXp8fp",
+];
 const Rat = () => {
   return (
     <>
       <Header />
       <section className="rat_playlist_sec1">
+        <div className="yt_wrapper">
+          {selectedVideoId.map?.((item, i) => (
+            <div className="yt_data" key={i}>
+              <ReactPlayer
+                url={`${item}`}
+                controls
+                width="100%"
+                height="480px"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+     <section className="rat_playlist_sec2">
         <div className="yt_wrapper">
           <iframe
             width="100%"
@@ -29,7 +52,7 @@ const Rat = () => {
             allowFullScreen
           ></iframe> */}
         </div>
-      </section>
+      </section> 
     </>
   );
 };

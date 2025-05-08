@@ -1,9 +1,23 @@
 @import "../../common.scss";
 
 .rat_playlist_sec1 {
-    padding-top: 10em;
-    .yt_wrapper {
-        // height: calc(100vh - 10.5em);
-        height: 60em;
+  padding-top: 10em;
+  .yt_wrapper {
+    // height: calc(100vh - 10.5em);
+    // height: 60em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em 2em;
+    .yt_data {
+      width: 32%;
     }
+  }
+}
+
+.rat_playlist_sec2 {
+  padding-top: 10em;
+  .yt_wrapper {
+    // height: calc(100vh - 10.5em);
+    height: 60em;
+  }
 }
