@@ -1,0 +1,51 @@
+.Preloader_block {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: 100%;
+  height: 100vh;
+  z-index: 9999;
+  transform: translateY(0);
+  transform-origin: 0 0;
+  color: #fff;
+  pointer-events: none;
+  .Preloader_logoType svg {
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    display: block;
+  }
+
+  .masked-text {
+    // x: 50%;
+    // y: 50%;
+    // dy: 0.35em;
+    text-anchor: middle;
+    font-size: 7.5em;
+    font-weight: 700;
+    fill: black;
+    font-family: sans-serif;
+
+    transform-origin: center;
+    animation: scaleIn 7s ease-out forwards;
+  }
+
+  .Preloader_logoType svg rect {
+    transition: all 1s ease;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(1);
+  }
+  // 50% {
+  //   transform: scale(7.5);
+  // }
+  100% {
+    transform: scale(15);
+  }
+}
+
+// test end

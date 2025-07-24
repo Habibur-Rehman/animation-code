@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import "./excelEntertainment.scss";
 import {
   centerBottom,
@@ -18,11 +18,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import Cards from "./Sections/Card";
+import Loader from "../../components/Loader/Loader";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ExcelEntertainment = () => {
   const sectionRef = useRef(null);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -91,7 +93,7 @@ const ExcelEntertainment = () => {
             start: "top 10%",
             end: "50% 50%",
             scrub: 1,
-            markers: true,
+            // markers: true,
           },
         }
         // "imgchanges"
@@ -114,12 +116,12 @@ const ExcelEntertainment = () => {
             // start: "top top",
             // endTrigger: ".moving_img",
             // end: "bottom bottom",
-              start: "top 10%",
+            start: "top 10%",
             end: "50% 50%",
             scrub: 1,
             // markers: true,
-            // pin: sectionRef.current,
-            pin: ".fixed_img",
+            pin: sectionRef.current,
+            // pin: ".fixed_img",
             pinSpacing: false,
           },
         }
@@ -235,7 +237,7 @@ const ExcelEntertainment = () => {
   useEffect(() => {
     // Initialize Lenis
     const lenis = new Lenis({
-      duration: 1.2, // Control the duration of the scroll
+      duration: 1.3, // Control the duration of the scroll
       // easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
       smooth: true,
@@ -256,8 +258,21 @@ const ExcelEntertainment = () => {
     };
   }, []);
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 2500); // match animation duration
+
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
+
   return (
     <>
+      {/* <Loader /> */}
       <section className="excel_ent_sec1">
         <div className="my_container">
           <h1>Ground Zero</h1>
