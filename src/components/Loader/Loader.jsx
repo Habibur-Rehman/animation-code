@@ -29,8 +29,20 @@ const Loader = () => {
                   LEONARDO
                 </text> */}
 
-                <text x="50%" y="50%" dy=".35em" className="masked-text">
-                  DTRE
+                {/* <text x="50%" y="50%" dy=".35em" className="masked-text">
+                  ARTH
+                </text> */}
+                <text x="42%" y="50%" dy=".35em" className="masked-text">
+                  A
+                </text>
+                <text x="47%" y="50%" dy=".35em" className="masked-text">
+                  R
+                </text>
+                <text x="50%" y="50%" dy=".35em" className="masked-text t_text">
+                  T
+                </text>{" "}
+                <text x="53%" y="50%" dy=".35em" className="masked-text">
+                  H
                 </text>
               </mask>
             </defs>

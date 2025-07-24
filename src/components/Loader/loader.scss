@@ -28,23 +28,28 @@
     font-family: sans-serif;
 
     transform-origin: center;
-    animation: scaleIn 7s ease-out forwards;
+    animation: scaleIn 7s ease-out forwards 1s;
+  }
+  .t_text {
+    mask-position: 50%;
   }
 
-  .Preloader_logoType svg rect {
-    transition: all 1s ease;
-  }
+  // .Preloader_logoType svg rect {
+  //   transition: all 1s ease;
+  // }
 }
 
 @keyframes scaleIn {
   0% {
     transform: scale(1);
+    opacity: 1;
   }
   // 50% {
   //   transform: scale(7.5);
   // }
   100% {
-    transform: scale(15);
+    transform: scale(70);
+    opacity: 0;
   }
 }
 
