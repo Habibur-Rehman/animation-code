@@ -28,11 +28,12 @@
     font-family: sans-serif;
 
     transform-origin: center;
-    animation: scaleIn 7s ease-out forwards 1s;
+    // animation: scaleIn 4s ease-out forwards 1s;
+    animation: scaleIn 4s linear forwards 1s;
   }
-  .t_text {
-    mask-position: 50%;
-  }
+  // .t_text {
+  //   mask-position: 50%;
+  // }
 
   // .Preloader_logoType svg rect {
   //   transition: all 1s ease;
@@ -44,13 +45,36 @@
     transform: scale(1);
     opacity: 1;
   }
-  // 50% {
-  //   transform: scale(7.5);
-  // }
+  20% {
+    transform: scale(15);
+  }
+  40% {
+    transform: scale(30);
+  }
+  60% {
+    transform: scale(45);
+  }
+  80% {
+    transform: scale(60);
+  }
   100% {
     transform: scale(70);
     opacity: 0;
   }
 }
+
+// @keyframes scaleIn {
+//   0% {
+//     transform: scale(1);
+//     opacity: 1;
+//   }
+//   // 50% {
+//   //   transform: scale(35);
+//   // }
+//   100% {
+//     transform: scale(70);
+//     opacity: 0;
+//   }
+// }
 
 // test end

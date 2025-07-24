@@ -35,13 +35,13 @@ const Loader = () => {
                 <text x="42%" y="50%" dy=".35em" className="masked-text">
                   A
                 </text>
-                <text x="47%" y="50%" dy=".35em" className="masked-text">
+                <text x="46%" y="50%" dy=".35em" className="masked-text">
                   R
                 </text>
                 <text x="50%" y="50%" dy=".35em" className="masked-text t_text">
                   T
                 </text>{" "}
-                <text x="53%" y="50%" dy=".35em" className="masked-text">
+                <text x="54%" y="50%" dy=".35em" className="masked-text">
                   H
                 </text>
               </mask>
