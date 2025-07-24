@@ -67,6 +67,25 @@ export { default as globeIcon } from "./images/SilverPoint/globe_icon.png";
 export { default as silverpressDesktopVideo } from "./video/silverpress_destop.mp4";
 export { default as silverpressMobileVideo } from "./video/silverpress_mobile.mp4";
 
+
+
+// <================ ExcelEntertainment ====================>
+export { default as leftTop } from "./images/ExcelEntertainment/left_top.png";
+export { default as leftMiddle } from "./images/ExcelEntertainment/left_middle.png";
+export { default as leftBottom } from "./images/ExcelEntertainment/left_bottom.png";
+export { default as centerTop } from "./images/ExcelEntertainment/center_top.png";
+export { default as centerMiddle } from "./images/ExcelEntertainment/center_middle.png";
+export { default as centerBottom } from "./images/ExcelEntertainment/center_bottom.png";
+export { default as rightTop } from "./images/ExcelEntertainment/right_top.png";
+export { default as rightMiddle } from "./images/ExcelEntertainment/right_middle.png";
+export { default as rightBottom } from "./images/ExcelEntertainment/right_bottom.png";
+export { default as natureImg } from "./images/ExcelEntertainment/Frame-89.png";
+export { default as natureImg02 } from "./images/ExcelEntertainment/Frame-87.png";
+export { default as centerCard } from "./images/ExcelEntertainment/center_card.png";
+export { default as centerCard03 } from "./images/ExcelEntertainment/center_card_3.png";
+
+
+
 export let images = {
   archinzaGal01: {
     image: require("./images/Archinza/alex-wong.png"),

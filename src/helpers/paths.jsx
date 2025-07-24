@@ -11,4 +11,5 @@ export const archinzaURL= "/archinza";
 export const videoDemoURL= "/video-demo";
 export const playlistURL= "/playlist";
 export const reactPlayerURL= "/react-player";
+export const excelEntertainmentURL= "/excel-entertainment";
 
