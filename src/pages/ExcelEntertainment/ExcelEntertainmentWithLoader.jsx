@@ -8,7 +8,7 @@ const ExcelEntertainmentWithLoader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 5000); // Match your animation timing
+    }, 4000); // Match your animation timing
     return () => clearTimeout(timer);
   }, []);
 
