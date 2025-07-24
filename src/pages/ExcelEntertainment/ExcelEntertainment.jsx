@@ -18,7 +18,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import Cards from "./Sections/Card";
-import ImageZoomAnimationa from "./Sections/ImageZoomAnimationa";
 
 gsap.registerPlugin(ScrollTrigger);
 
