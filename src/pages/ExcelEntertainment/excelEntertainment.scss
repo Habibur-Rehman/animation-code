@@ -22,14 +22,14 @@
           max-width: 100%;
         }
       }
-    //   .img_wrapper01 {
-    //     transform: rotate(-10deg);
-    //     mix-blend-mode: luminosity;
-    //     margin-top: 5em;
-    //   }
-    //   .img_wrapper03 {
-    //     margin-top: 5em;
-    //   }
+      //   .img_wrapper01 {
+      //     transform: rotate(-10deg);
+      //     mix-blend-mode: luminosity;
+      //     margin-top: 5em;
+      //   }
+      //   .img_wrapper03 {
+      //     margin-top: 5em;
+      //   }
     }
   }
 }
@@ -37,9 +37,10 @@
 .excel_ent_sec2 {
   padding: 7.5em 0 500px;
   overflow: hidden;
-//   height: 100vh;
+  //   height: 100vh;
   .circle_wrapper {
     overflow: hidden;
+    position: relative;
   }
   .circle-module {
     background-color: rgba($color: #000000, $alpha: 0.9);
@@ -49,7 +50,12 @@
     // padding: 100px 0;
     // transition: clip-path 0.5s ease;
     // border-radius: 50%;
+    // height: 100vh;
     .grid_row {
+      // background-color: rgba($color: #000000, $alpha: 0.9);
+      // clip-path: circle(0% at 50% 50%);
+      // overflow: hidden;
+      
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3.75em;
@@ -67,6 +73,9 @@
         //     margin-top: -3.75em;
         // }
       }
+      // .moving_img {
+      //   height: 100vh;
+      // }
     }
   }
 }

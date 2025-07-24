@@ -18,6 +18,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import Cards from "./Sections/Card";
+import ImageZoomAnimationa from "./Sections/ImageZoomAnimationa";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,10 +35,11 @@ const ExcelEntertainment = () => {
           // endTrigger: ".product_container",
           // end: "top top",
           scrub: 1,
-          //   markers: true,
+          // markers: true,
         },
       });
 
+      // Circle clip
       tl.fromTo(
         sectionRef.current,
         {
@@ -49,12 +51,18 @@ const ExcelEntertainment = () => {
           //   scale: 1,
           ease: "power2.out",
         }
+        // "zoom"
       );
 
-      tl.to(
+      // Move left and right column images
+      tl.fromTo(
         ".moving_img",
         {
-          y: "3.75em",
+          y: "0em",
+        },
+        {
+          // y: "3.75em",
+          y: "7.5em",
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -67,114 +75,56 @@ const ExcelEntertainment = () => {
         // "imgchanges"
       );
 
-      //   tl.fromTo(
-      //     sectionRef.current,
-      //     {
-      //       scale: 1
-      //     //   width: "100%",
-      //     },
-      //     {
-      //       //   scale: 6,
-      //       ease: "power2.out",
-      //       duration: 5,
-      //       scrollTrigger: {
-      //         trigger: sectionRef.current,
-      //         start: "top top",
-      //         end: "bottom bottom",
-      //         scrub: 1,
-      //         markers: true,
-      //         pin: sectionRef.current,
-      //         pinSpacing: false,
-      //       },
-      //     }
-      //   );
       tl.fromTo(
-        ".center_img",
-        { y: "0" },
+        sectionRef.current,
         {
-          y: "-15vh",
+          scale: 1,
+          transformOrigin: "50% 50%",
+          // duration: 5,
+        },
+        {
+          scale: 3.2,
+          transformOrigin: "50% 50%",
+          duration: 5,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom bottom",
+            start: "top 10%",
+            end: "50% 50%",
             scrub: 1,
+            markers: true,
           },
         }
+        // "imgchanges"
       );
+
       tl.fromTo(
-        ".fixed_img",
-        { y: "0" },
+        sectionRef.current,
         {
-          y: "0",
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".fixed_img",
-            // start: "top top",
-            start: "top 35%",
-            end: "bottom bottom",
-            scrub: 1,
-            pin: ".fixed_img",
-            pinSpacing: false,
-            // markers: true,
-          },
-        }
-      );
-      tl.fromTo(
-        ".grid_row",
-        { width: "100%" },
+          // scale: 1,
+          duration: 5,
+        },
         {
-          width: "500em",
+          //   opacity: 0.8,
+          // scale: 6,
           ease: "power2.out",
           duration: 5,
           scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top top",
-            end: "bottom bottom",
+            // trigger: sectionRef.current,
+            trigger: ".fixed_img",
+            // start: "top top",
+            // endTrigger: ".moving_img",
+            // end: "bottom bottom",
+              start: "top 10%",
+            end: "50% 50%",
             scrub: 1,
-            markers: true,
-            pin: sectionRef.current,
+            // markers: true,
+            // pin: sectionRef.current,
+            pin: ".fixed_img",
             pinSpacing: false,
           },
         }
       );
-
-      //   tl.to(
-      //     ".fixed_img",
-      //     // { scale: 1 },
-      //     {
-      //       scale: 1,
-      //       ease: "power2.out",
-      //       //   scrollTrigger: {
-      //       //     trigger: sectionRef.current,
-      //       //     start: "top top",
-      //       //     end: "bottom bottom",
-      //       //     scrub: 1,
-      //       //     markers: true,
-      //       //     pin: sectionRef.current,
-      //       //     pinSpacing: false,
-      //       //   },
-      //     }
-      //   );
-
-      //   tl.fromTo(
-      //     ".fixed_img",
-      //     { opacity: 1, height: "auto" },
-      //     {
-      //       opacity: 0.8,
-      //       height: "100vh",
-      //       ease: "power2.out",
-      //       scrollTrigger: {
-      //         trigger: ".fixed_img",
-      //         start: "top top",
-      //         end: "bottom 50%",
-      //         scrub: 1,
-      //         markers: true,
-      //         pin: ".fixed_img",
-      //         pinSpacing: false,
-      //       },
-      //     }
-      //   );
     });
 
     return () => {
@@ -183,105 +133,105 @@ const ExcelEntertainment = () => {
     };
   }, []);
 
-  //   useLayoutEffect(() => {
-  //     const ctx = gsap.context(() => {
-  //       const tl = gsap.timeline({
+  // useLayoutEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     const tl = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: sectionRef.current,
+  //         start: "top 25%",
+  //         end: "bottom center",
+  //         // endTrigger: ".product_container",
+  //         // end: "top top",
+  //         scrub: 1,
+  //         //   markers: true,
+  //       },
+  //     });
+
+  //     tl.fromTo(
+  //       sectionRef.current,
+  //       {
+  //         clipPath: "circle(0% at 50% 50%)",
+  //       },
+  //       {
+  //         clipPath: "circle(75% at 50% 50%)",
+  //         ease: "power2.out",
+  //       }
+  //     );
+
+  //     tl.to(
+  //       ".moving_img",
+  //       {
+  //         y: "3.75em",
+  //         ease: "power2.out",
   //         scrollTrigger: {
   //           trigger: sectionRef.current,
   //           start: "top 25%",
   //           end: "bottom center",
-  //           // endTrigger: ".product_container",
-  //           // end: "top top",
   //           scrub: 1,
-  //           //   markers: true,
+  //           // markers: true,
   //         },
-  //       });
+  //       }
+  //       // "imgchanges"
+  //     );
 
-  //       tl.fromTo(
-  //         sectionRef.current,
-  //         {
-  //           clipPath: "circle(0% at 50% 50%)",
+  //     tl.fromTo(
+  //       sectionRef.current,
+  //       { scale: 1 },
+  //       {
+  //         //   opacity: 0.8,
+  //         scale: 6,
+  //         ease: "power2.out",
+  //         duration: 5,
+  //         scrollTrigger: {
+  //           trigger: sectionRef.current,
+  //           start: "top top",
+  //           end: "bottom bottom",
+  //           scrub: 1,
+  //           // markers: true,
+  //           pin: sectionRef.current,
+  //           pinSpacing: false,
   //         },
-  //         {
-  //           clipPath: "circle(75% at 50% 50%)",
-  //           ease: "power2.out",
-  //         }
-  //       );
+  //       }
+  //     );
+  //     tl.fromTo(
+  //       ".center_img",
+  //       { y: "0" },
+  //       {
+  //         y: "-15vh",
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: sectionRef.current,
+  //           start: "top top",
+  //           end: "bottom bottom",
+  //           scrub: 1,
+  //         },
+  //       }
+  //     );
+  //     tl.fromTo(
+  //       ".fixed_img",
+  //       { y: "0" },
+  //       {
+  //         y: "0",
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           trigger: ".fixed_img",
+  //           // start: "top top",
+  //           start: "top 35%",
+  //           end: "bottom bottom",
+  //           scrub: 1,
+  //           pin: ".fixed_img",
+  //           pinSpacing: false,
+  //           // markers: true,
+  //         },
+  //       }
+  //     );
+  //   });
 
-  //       tl.to(
-  //         ".moving_img",
-  //         {
-  //           y: "3.75em",
-  //           ease: "power2.out",
-  //           scrollTrigger: {
-  //             trigger: sectionRef.current,
-  //             start: "top 25%",
-  //             end: "bottom center",
-  //             scrub: 1,
-  //             // markers: true,
-  //           },
-  //         }
-  //         // "imgchanges"
-  //       );
-
-  //       tl.fromTo(
-  //         sectionRef.current,
-  //         { scale: 1 },
-  //         {
-  //           //   opacity: 0.8,
-  //           scale: 6,
-  //           ease: "power2.out",
-  //           duration: 5,
-  //           scrollTrigger: {
-  //             trigger: sectionRef.current,
-  //             start: "top top",
-  //             end: "bottom bottom",
-  //             scrub: 1,
-  //             // markers: true,
-  //             pin: sectionRef.current,
-  //             pinSpacing: false,
-  //           },
-  //         }
-  //       );
-  //       tl.fromTo(
-  //         ".center_img",
-  //         { y: "0" },
-  //         {
-  //           y: "-15vh",
-  //           ease: "power2.out",
-  //           scrollTrigger: {
-  //             trigger: sectionRef.current,
-  //             start: "top top",
-  //             end: "bottom bottom",
-  //             scrub: 1,
-  //           },
-  //         }
-  //       );
-  //       tl.fromTo(
-  //         ".fixed_img",
-  //         { y: "0" },
-  //         {
-  //           y: "0",
-  //           ease: "power2.out",
-  //           scrollTrigger: {
-  //             trigger: ".fixed_img",
-  //             // start: "top top",
-  //             start: "top 35%",
-  //             end: "bottom bottom",
-  //             scrub: 1,
-  //             pin: ".fixed_img",
-  //             pinSpacing: false,
-  //             // markers: true,
-  //           },
-  //         }
-  //       );
-  //     });
-
-  //     return () => {
-  //       ctx.revert();
-  //       ScrollTrigger.getAll().forEach((t) => t.kill());
-  //     };
-  //   }, []);
+  //   return () => {
+  //     ctx.revert();
+  //     ScrollTrigger.getAll().forEach((t) => t.kill());
+  //   };
+  // }, []);
 
   useEffect(() => {
     // Initialize Lenis
@@ -337,6 +287,8 @@ const ExcelEntertainment = () => {
           </div>
         </div>
       </section>
+
+      {/* <ImageZoomAnimationa /> */}
     </>
   );
 };
