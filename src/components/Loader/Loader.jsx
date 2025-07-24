@@ -28,7 +28,6 @@ const Loader = () => {
                 >
                   LEONARDO
                 </text> */}
-
                 {/* <text x="50%" y="50%" dy=".35em" className="masked-text">
                   ARTH
                 </text> */}
