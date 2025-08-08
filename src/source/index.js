@@ -67,6 +67,10 @@ export { default as globeIcon } from "./images/SilverPoint/globe_icon.png";
 export { default as silverpressDesktopVideo } from "./video/silverpress_destop.mp4";
 export { default as silverpressMobileVideo } from "./video/silverpress_mobile.mp4";
 
+// Demo Video
+export { default as laxmiDiwaliVideo } from "./video/LAXMI_Diwali_KV_v11.mp4";
+export { default as regsiterCtaImg } from "./images/register_cta.jpg";
+
 
 
 // <================ ExcelEntertainment ====================>
