@@ -89,6 +89,15 @@ export { default as centerCard } from "./images/ExcelEntertainment/center_card.p
 export { default as centerCard03 } from "./images/ExcelEntertainment/center_card_3.png";
 
 
+// <================ Pfeda ====================>
+// export { default as tractor3D } from "./images/Pfeda/tractor.glb";
+export { default as tractorBgImg } from "./images/Pfeda/bg_img.png";
+export { default as tractor01Img } from "./images/Pfeda/1.png";
+export { default as tractor02Img } from "./images/Pfeda/2.png";
+export { default as tractor03Img } from "./images/Pfeda/3.png";
+export { default as tractor04Img } from "./images/Pfeda/4.png";
+export { default as tractor05Img } from "./images/Pfeda/5.png";
+export { default as tractor06Img } from "./images/Pfeda/6.png";
 
 export let images = {
   archinzaGal01: {

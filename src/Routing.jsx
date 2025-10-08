@@ -14,6 +14,7 @@ import {
   rangoonURL,
   reactPlayerURL,
   silverPointURL,
+  tractorURL,
   videoDemoURL,
 } from "./helpers/paths";
 import PrinterAnimation from "./pages/SilverPoint/PrinterAnimation/PrinterAnimation";
@@ -32,6 +33,7 @@ import ReactPlayerPages from "./pages/ReactPlayerPages/ReactPlayerPages";
 import ExcelEntertainment from "./pages/ExcelEntertainment/ExcelEntertainment";
 import Loader from "./components/Loader/Loader";
 import ExcelEntertainmentWithLoader from "./pages/ExcelEntertainment/ExcelEntertainmentWithLoader";
+import TractorAnim from "./pages/Pfeda/TractorAnim/TractorAnim";
 
 // const ExcelEntertainment = lazy(() =>
 //   import("./pages/ExcelEntertainment/ExcelEntertainment")
@@ -50,46 +52,47 @@ import ExcelEntertainmentWithLoader from "./pages/ExcelEntertainment/ExcelEntert
 // );
 
 const Routing = () => {
-    const [isLoading, setIsLoading] = useState(true);
-  
-    useEffect(() => {
-      // Simulate loading duration
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 2500); // match with animation duration
-  
-      return () => clearTimeout(timer);
-    }, []);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading duration
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // match with animation duration
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       {/* <Suspense fallback={<Loader />}> */}
-        <Routes>
-          <Route path={homeURL} element={<HomePage />} />
-          <Route path={printerURL} element={<PrinterAnimation />} />
-          <Route path={printerV2URL} element={<PrinterAnimationV2 />} />
-          <Route
-            path={accordionIconURL}
-            element={<AccordionImagePositionChange />}
-          />
-          <Route path={mapURL} element={<MapAnimation />} />
-          <Route path={silverPointURL} element={<SilverPointMain />} />
-          <Route path={rangoonURL} element={<RangoonMain />} />
-          <Route path={rangoonBottleURL} element={<RangoonMainV2 />} />
-          <Route path={rangoonHoverURL} element={<RangoonHover />} />
-          <Route path={archinzaURL} element={<Archinza />} />
-          <Route path={videoDemoURL} element={<VideoDemo />} />
-          <Route path={playlistURL} element={<Rat />} />
-          <Route path={reactPlayerURL} element={<ReactPlayerPages />} />
-          {/* <Route
+      <Routes>
+        <Route path={homeURL} element={<HomePage />} />
+        <Route path={printerURL} element={<PrinterAnimation />} />
+        <Route path={printerV2URL} element={<PrinterAnimationV2 />} />
+        <Route
+          path={accordionIconURL}
+          element={<AccordionImagePositionChange />}
+        />
+        <Route path={mapURL} element={<MapAnimation />} />
+        <Route path={silverPointURL} element={<SilverPointMain />} />
+        <Route path={rangoonURL} element={<RangoonMain />} />
+        <Route path={rangoonBottleURL} element={<RangoonMainV2 />} />
+        <Route path={rangoonHoverURL} element={<RangoonHover />} />
+        <Route path={archinzaURL} element={<Archinza />} />
+        <Route path={videoDemoURL} element={<VideoDemo />} />
+        <Route path={playlistURL} element={<Rat />} />
+        <Route path={reactPlayerURL} element={<ReactPlayerPages />} />
+        {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}
           /> */}
-          <Route
-            path={excelEntertainmentURL}
-            element={<ExcelEntertainmentWithLoader />}
-          />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Route
+          path={excelEntertainmentURL}
+          element={<ExcelEntertainmentWithLoader />}
+        />
+        <Route path={tractorURL} element={<TractorAnim />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
       {/* </Suspense> */}
     </>
   );

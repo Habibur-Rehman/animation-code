@@ -1,0 +1,171 @@
+import React, { Suspense, useEffect, useRef } from "react";
+import "./tractorAnim.scss";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  tractor01Img,
+  tractor02Img,
+  tractor03Img,
+  tractor04Img,
+  tractor05Img,
+  tractor06Img,
+  tractorBgImg,
+} from "../../../source";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// const Tractor = () => {
+//   const { scene } = useGLTF("/Pfeda/tractor.glb");
+//   return <primitive object={scene} scale={100} />;
+// };
+
+const Tractor = () => {
+  const { scene } = useGLTF("/Pfeda/tractor.glb");
+  const tractorRef = useRef();
+
+  // Set initial rotation like in your reference image
+  const initialRotation = [0, 0, 0]; // adjust as needed
+
+  useEffect(() => {
+    if (tractorRef.current) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#tractor_section",
+          pin: true,
+          start: "0% top",
+          end: "200% 70%",
+          scrub: 1,
+          pinSpacer: false,
+          //   fastScrollEnd: 3000,
+        //   markers: true,
+        },
+      });
+      tl.to(tractorRef.current.rotation, {
+        y: Math.PI / 3,
+      });
+      tl.fromTo(
+        ".details_container",
+        {
+          scale: 0,
+          transformOrigin: "50% 50%",
+          opacity: 0,
+        },
+        {
+          scale: 1,
+        //   transformOrigin: "bottom",
+          opacity: 1,
+          duration: 1,
+
+          scrollTrigger: {
+            trigger: "#tractor_section",
+            start: "-18% top",
+            end: "50% 70%",
+            scrub: 1,
+            markers: true,
+          },
+        }
+      );
+    }
+  }, []);
+
+  //   useEffect(() => {
+  //     if (tractorRef.current) {
+  //       // Animate rotation on scroll
+  //       gsap.to(tractorRef.current.rotation, {
+  //         y: Math.PI / 3, // 45° in radians
+  //         scrollTrigger: {
+  //           trigger: "#tractor_section",
+  //           pin: true,
+  //           start: "2% top",
+  //           end: "200% 70%",
+  //           scrub: 1,
+  //           pinSpacer: false,
+  //           //   fastScrollEnd: 3000,
+  //           markers: true,
+  //         },
+  //       });
+  //     }
+  //   }, []);
+  return (
+    <primitive
+      ref={tractorRef}
+      object={scene}
+      scale={100}
+      rotation={initialRotation}
+    />
+  );
+};
+
+export default function TractorAnim() {
+  return (
+    <>
+      <section className="tract_sec">
+        <h1 className="title">
+          Innovating Automotive <br /> & Furniture
+        </h1>
+        <div className="bg_img_wrapper">
+          <img src={tractorBgImg} className="tractor_bg" alt="" />
+          {/* <img src={tractorBgImg} className="tractor_bg" alt="" /> */}
+        </div>
+        <div className="my_container">
+          <div id="tractor_section">
+            {/* <div className="tract_wrapper"> */}
+            {/* <div className="sticky_wrapper"> */}
+            <Canvas camera={{ position: [5, 2, 0] }} className="tractor_canvas">
+              <ambientLight intensity={0.6} />
+              <directionalLight position={[3, 3, 3]} />
+              <Suspense fallback={null}>
+                <Tractor />
+              </Suspense>
+            </Canvas>
+            {/* </div> */}
+
+            <div className="details_container">
+              <div className="details_wrapper">
+                <div className="data_wrapper">
+                  <img className="tract_1" src={tractor01Img} alt="1" />
+                </div>
+                <div className="data_wrapper">
+                  <img className="tract_2" src={tractor02Img} alt="2" />
+                </div>
+                <div className="data_wrapper">
+                  <img className="tract_3" src={tractor03Img} alt="3" />
+                </div>
+                <div className="data_wrapper">
+                  <img className="tract_4" src={tractor04Img} alt="4" />
+                </div>
+                <div className="data_wrapper">
+                  <img className="tract_5" src={tractor05Img} alt="5" />
+                </div>
+                <div className="data_wrapper">
+                  <img className="tract_6" src={tractor06Img} alt="6" />
+                </div>
+              </div>
+            </div>
+            {/* </div> */}
+          </div>
+        </div>
+      </section>
+
+      {/* <div style={{ height: "500px", width: "100%" }}>
+        <Canvas camera={{ position: [0, 0, 5],fov: 1 }}>
+        <Canvas camera={{ position: [0, 0, 5] }}>
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[3, 3, 3]} />
+          <Suspense fallback={null}>
+            <Tractor />
+          </Suspense>
+          <OrbitControls />
+        </Canvas>
+      </div> */}
+      <section className="tractor_sec1">
+        <h1>Section 1</h1>
+        {/* <img src="/Pfeda/tractor.png" width={780} height={551} alt="" /> */}
+      </section>
+      {/* <div style={{ height: "100vh" }}>section 2</div> */}
+    </>
+  );
+}
