@@ -61,7 +61,7 @@ const Tractor = () => {
 
           scrollTrigger: {
             trigger: "#tractor_section",
-            start: "-18% top",
+            start: "0.5% top",
             end: "50% 70%",
             scrub: 1,
             markers: true,
