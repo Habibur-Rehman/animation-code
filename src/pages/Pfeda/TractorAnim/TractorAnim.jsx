@@ -38,18 +38,23 @@ const Tractor = () => {
     // if (tractorRef.current) {
     if (!tractorRef.current) return;
 
-    // Intro title animation
-    gsap.fromTo(
-      ".title",
-      { y: "100%", opacity: 0 },
-      { y: "0%", opacity: 1, duration: 2, ease: "power1.out" }
-    );
-    // gsap.fromTo(
-    //   "#tractor_section",
-    //   { x: "100%", duration: 2 },
-    //   { x: "0%", duration: 2, ease: "power1.out" }
-    // );
+    // kill any existing triggers before re-initializing
+    // ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+
     const ctx = gsap.context(() => {
+      // Intro title animation
+      gsap.fromTo(
+        ".title",
+        { y: "100%", opacity: 0 },
+        { y: "0%", opacity: 1, duration: 2, ease: "power1.out" }
+      );
+      // gsap.fromTo(
+      //   "#tractor_section",
+      //   { x: "100%", duration: 2 },
+      //   { x: "0%", duration: 2, ease: "power1.out" }
+      // );
+
+      // main scroll timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           // trigger: "#tractor_section",
@@ -61,6 +66,7 @@ const Tractor = () => {
           // end: "200% 70%",
           scrub: 1,
           pinSpacer: false,
+          invalidateOnRefresh: true,
           // anticipatePin: 1,
           //   fastScrollEnd: 3000,
           //   markers: true,
@@ -140,25 +146,6 @@ const Tractor = () => {
 
     return () => ctx.revert();
   }, [width]);
-
-  //   useEffect(() => {
-  //     if (tractorRef.current) {
-  //       // Animate rotation on scroll
-  //       gsap.to(tractorRef.current.rotation, {
-  //         y: Math.PI / 3, // 45° in radians
-  //         scrollTrigger: {
-  //           trigger: "#tractor_section",
-  //           pin: true,
-  //           start: "2% top",
-  //           end: "200% 70%",
-  //           scrub: 1,
-  //           pinSpacer: false,
-  //           //   fastScrollEnd: 3000,
-  //           markers: true,
-  //         },
-  //       });
-  //     }
-  //   }, []);
 
   const scaleValue = width > 1024 ? 95 : width > 767 ? 87 : 70;
 
