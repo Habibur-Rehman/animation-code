@@ -99,6 +99,7 @@ export { default as tractor04Img } from "./images/Pfeda/4.png";
 export { default as tractor05Img } from "./images/Pfeda/5.png";
 export { default as tractor06Img } from "./images/Pfeda/6.png";
 export { default as tractorDetailsImg } from "./images/Pfeda/tractor-details.png";
+export { default as tractorDetailsMbImg } from "./images/Pfeda/tractor-details-mb.png";
 export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
 
 export let images = {

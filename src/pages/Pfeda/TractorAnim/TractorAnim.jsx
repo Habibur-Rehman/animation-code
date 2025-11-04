@@ -15,6 +15,7 @@ import {
   tractorBgImg,
   tractorBgVideo,
   tractorDetailsImg,
+  tractorDetailsMbImg,
 } from "../../../source";
 import { useWindowSize } from "react-use";
 
@@ -34,128 +35,117 @@ const Tractor = () => {
   const initialRotation = [0, 0, 0]; // adjust as needed
 
   useEffect(() => {
-    if (tractorRef.current) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          // trigger: "#tractor_section",
-          trigger: ".tract_sec",
-          pin: true,
-          start: "top top",
-          end: "+=300%",
-          // start: "-5% top",
-          // end: "200% 70%",
-          scrub: 1,
-          pinSpacer: false,
-          // anticipatePin: 1,
-          //   fastScrollEnd: 3000,
-          //   markers: true,
-        },
-      });
-      tl.to(
-        tractorRef.current.rotation,
-        {
-          y: Math.PI / 3,
-        },
-        "same"
-      );
-      tl.fromTo(
-        ".title",
-        {
-          translateY: 0,
-          duration: 1,
-        },
-        {
-          translateY: "-100%",
-          duration: 1,
-        },
-        "same"
-      );
-      tl.fromTo(
-        ".details_container",
-        {
-          scale: 0,
-          // opacity: 0,
-          duration: 1,
-          bottom: "50%",
-          transformOrigin: "bottom bottom",
-        },
-        {
-          scale: 1,
-          // opacity: 1,
-          duration: 1,
-          // bottom: "115%",
-          // bottom: `${width > 1024 ? "115%" : "110%"}`,
-          bottom: `${width > 1024 ? "55%" : "70%"}`,
-          // transformOrigin: "50% 50%",
-        },
-        "same"
-      );
-      tl.fromTo(
-        ".details_container",
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-        },
-        "-=0.6"
-      );
-      tl.fromTo(
-        "#tractor_section",
-        {
-          opacity: 1,
-        },
-        {
-          opacity: `${width > 991 ? 1 : 0}`,
-        },
-        `${width > 991 ? "0" : "+=0.15"}`
-      );
-      tl.fromTo(
-        ".content_wrapper",
-        {
-          translateY: "100%",
-          translateX: `${width > 991 ? 0 : "-50%"}`,
-          opacity: 0,
-          duration: 1,
-          bottom: 0,
-          // transformOrigin: "bottom bottom",
-        },
-        {
-          // translateY: "0%",
-          translateY: `${width > 991 ? "0%" : "-50%"}`,
-          translateX: `${width > 991 ? 0 : "-50%"}`,
-          opacity: 1,
-          duration: 1,
-          // bottom: "14.5%",
-        },
-        `${width > 991 ? "-=0.61" : "=-0.15"}`
-      );
+    // if (tractorRef.current) {
+    if (!tractorRef.current) return;
 
-      // tl.fromTo(
-      //   ".details_container",
-      //   {
-      //     scale: 0,
-      //     transformOrigin: "50% 50%",
-      //     opacity: 0,
-      //   },
-      //   {
-      //     scale: 1,
-      //     //   transformOrigin: "bottom",
-      //     opacity: 1,
-      //     duration: 1,
+    // Intro title animation
+    gsap.fromTo(
+      ".title",
+      { y: "100%", opacity: 0 },
+      { y: "0%", opacity: 1, duration: 2, ease: "power1.out" }
+    );
+    // gsap.fromTo(
+    //   "#tractor_section",
+    //   { x: "100%", duration: 2 },
+    //   { x: "0%", duration: 2, ease: "power1.out" }
+    // );
 
-      //     scrollTrigger: {
-      //       trigger: ".tract_sec",
-      //       // start: "0.5% top",
-      //       start: "0.1% 0.05%",
-      //       end: "50% 50%",
-      //       // end: "+=300%",
-      //       scrub: 1,
-      //       markers: true,
-      //     },
-      //   }
-      // );
-    }
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        // trigger: "#tractor_section",
+        trigger: ".tract_sec",
+        pin: true,
+        start: "top top",
+        end: "+=300%",
+        // start: "-5% top",
+        // end: "200% 70%",
+        scrub: 1,
+        pinSpacer: false,
+        // anticipatePin: 1,
+        //   fastScrollEnd: 3000,
+        //   markers: true,
+      },
+    });
+    tl.to(
+      tractorRef.current.rotation,
+      {
+        y: Math.PI / 3,
+      },
+      "same"
+    );
+    tl.fromTo(
+      ".title",
+      {
+        translateY: 0,
+        duration: 1,
+      },
+      {
+        translateY: "-100%",
+        duration: 1,
+      },
+      "same"
+    );
+    tl.fromTo(
+      ".details_container",
+      {
+        scale: 0,
+        // opacity: 0,
+        duration: 1,
+        bottom: "50%",
+        transformOrigin: "bottom bottom",
+      },
+      {
+        scale: 1,
+        // opacity: 1,
+        duration: 1,
+        // bottom: "115%",
+        // bottom: `${width > 1024 ? "115%" : "110%"}`,
+        bottom: `${width > 1024 ? "55%" : "70%"}`,
+        // transformOrigin: "50% 50%",
+      },
+      "same"
+    );
+    tl.fromTo(
+      ".details_container",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+      },
+      "-=0.6"
+    );
+    // tl.fromTo(
+    //   "#tractor_section",
+    //   {
+    //     opacity: 1,
+    //   },
+    //   {
+    //     opacity: `${width > 991 ? 1 : 0}`,
+    //   },
+    //   `${width > 991 ? "0" : "+=0.15"}`
+    // );
+    tl.fromTo(
+      ".content_wrapper",
+      {
+        translateY: "100%",
+        // translateX: `${width > 991 ? 0 : "-50%"}`,
+        opacity: 0,
+        duration: 1,
+        bottom: 0,
+        // transformOrigin: "bottom bottom",
+      },
+      {
+        translateY: "0%",
+        // translateY: `${width > 991 ? "0%" : "-50%"}`,
+        // translateX: `${width > 991 ? 0 : "-50%"}`,
+        opacity: 1,
+        duration: 1,
+        // bottom: "14.5%",
+      },
+      `${width > 991 ? "-=0.61" : "=-0.15"}`
+    );
+    // }
   }, []);
 
   //   useEffect(() => {
@@ -260,7 +250,7 @@ export default function TractorAnim() {
               <div className="details_container">
                 <div className="data_wrapper">
                   <img
-                    src={tractorDetailsImg}
+                    src={width > 991 ? tractorDetailsImg : tractorDetailsMbImg}
                     alt="tractor details"
                     className="tractor_details"
                   />
