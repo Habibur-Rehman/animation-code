@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
 import "./tractorAnim.scss";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -34,7 +34,7 @@ const Tractor = () => {
   // Set initial rotation like in your reference image
   const initialRotation = [0, 0, 0]; // adjust as needed
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // if (tractorRef.current) {
     if (!tractorRef.current) return;
 
@@ -49,104 +49,97 @@ const Tractor = () => {
     //   { x: "100%", duration: 2 },
     //   { x: "0%", duration: 2, ease: "power1.out" }
     // );
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        // trigger: "#tractor_section",
-        trigger: ".tract_sec",
-        pin: true,
-        start: "top top",
-        end: "+=300%",
-        // start: "-5% top",
-        // end: "200% 70%",
-        scrub: 1,
-        pinSpacer: false,
-        // anticipatePin: 1,
-        //   fastScrollEnd: 3000,
-        //   markers: true,
-      },
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          // trigger: "#tractor_section",
+          trigger: ".tract_sec",
+          pin: true,
+          start: "top top",
+          end: "+=300%",
+          // start: "-5% top",
+          // end: "200% 70%",
+          scrub: 1,
+          pinSpacer: false,
+          // anticipatePin: 1,
+          //   fastScrollEnd: 3000,
+          //   markers: true,
+        },
+      });
+      tl.to(
+        tractorRef.current.rotation,
+        {
+          y: Math.PI / 3,
+        },
+        "same"
+      );
+      tl.fromTo(
+        ".title",
+        {
+          translateY: 0,
+          duration: 1,
+        },
+        {
+          translateY: "-100%",
+          duration: 1,
+        },
+        "same"
+      );
+      tl.fromTo(
+        ".details_container",
+        {
+          scale: 0,
+          // opacity: 0,
+          duration: 1,
+          bottom: "50%",
+          transformOrigin: "bottom bottom",
+        },
+        {
+          scale: 1,
+          // opacity: 1,
+          duration: 1,
+          // bottom: "115%",
+          // bottom: `${width > 1024 ? "115%" : "110%"}`,
+          bottom: `${width > 1024 ? "55%" : "70%"}`,
+          // transformOrigin: "50% 50%",
+        },
+        "same"
+      );
+      tl.fromTo(
+        ".details_container",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+        },
+        "-=0.6"
+      );
+      tl.fromTo(
+        ".content_wrapper",
+        {
+          translateY: "100%",
+          // translateX: `${width > 991 ? 0 : "-50%"}`,
+          opacity: 0,
+          duration: 1,
+          bottom: 0,
+          // transformOrigin: "bottom bottom",
+        },
+        {
+          translateY: "0%",
+          // translateY: `${width > 991 ? "0%" : "-50%"}`,
+          // translateX: `${width > 991 ? 0 : "-50%"}`,
+          opacity: 1,
+          duration: 1,
+          // bottom: "14.5%",
+        },
+        `${width > 991 ? "-=0.61" : "=-0.15"}`
+      );
     });
-    tl.to(
-      tractorRef.current.rotation,
-      {
-        y: Math.PI / 3,
-      },
-      "same"
-    );
-    tl.fromTo(
-      ".title",
-      {
-        translateY: 0,
-        duration: 1,
-      },
-      {
-        translateY: "-100%",
-        duration: 1,
-      },
-      "same"
-    );
-    tl.fromTo(
-      ".details_container",
-      {
-        scale: 0,
-        // opacity: 0,
-        duration: 1,
-        bottom: "50%",
-        transformOrigin: "bottom bottom",
-      },
-      {
-        scale: 1,
-        // opacity: 1,
-        duration: 1,
-        // bottom: "115%",
-        // bottom: `${width > 1024 ? "115%" : "110%"}`,
-        bottom: `${width > 1024 ? "55%" : "70%"}`,
-        // transformOrigin: "50% 50%",
-      },
-      "same"
-    );
-    tl.fromTo(
-      ".details_container",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      },
-      "-=0.6"
-    );
-    // tl.fromTo(
-    //   "#tractor_section",
-    //   {
-    //     opacity: 1,
-    //   },
-    //   {
-    //     opacity: `${width > 991 ? 1 : 0}`,
-    //   },
-    //   `${width > 991 ? "0" : "+=0.15"}`
-    // );
-    tl.fromTo(
-      ".content_wrapper",
-      {
-        translateY: "100%",
-        // translateX: `${width > 991 ? 0 : "-50%"}`,
-        opacity: 0,
-        duration: 1,
-        bottom: 0,
-        // transformOrigin: "bottom bottom",
-      },
-      {
-        translateY: "0%",
-        // translateY: `${width > 991 ? "0%" : "-50%"}`,
-        // translateX: `${width > 991 ? 0 : "-50%"}`,
-        opacity: 1,
-        duration: 1,
-        // bottom: "14.5%",
-      },
-      `${width > 991 ? "-=0.61" : "=-0.15"}`
-    );
     // }
-  }, []);
+
+    return () => ctx.revert();
+  }, [width]);
 
   //   useEffect(() => {
   //     if (tractorRef.current) {
