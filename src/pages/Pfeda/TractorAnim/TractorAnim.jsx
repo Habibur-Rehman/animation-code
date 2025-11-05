@@ -1,7 +1,13 @@
-import React, { Suspense, useEffect, useLayoutEffect, useRef } from "react";
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import "./tractorAnim.scss";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls, useGLTF, useProgress } from "@react-three/drei";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -21,7 +27,7 @@ import { useWindowSize } from "react-use";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Tractor = () => {
+const Tractor = React.memo(() => {
   const { scene } = useGLTF("/Pfeda/tractor.glb");
   const tractorRef = useRef();
   const { width } = useWindowSize();
@@ -43,11 +49,11 @@ const Tractor = () => {
         { y: "100%", opacity: 0 },
         { y: "0%", opacity: 1, duration: 2, ease: "power1.out" }
       );
-      // gsap.fromTo(
-      //   "#tractor_section",
-      //   { x: "100%", duration: 2 },
-      //   { x: "0%", duration: 2, ease: "power1.out" }
-      // );
+      gsap.fromTo(
+        "#tractor_section",
+        { x: "100%", duration: 2 },
+        { x: "0%", duration: 3, ease: "power1.out" }
+      );
 
       // main scroll timeline
       const tl = gsap.timeline({
@@ -140,7 +146,7 @@ const Tractor = () => {
     // }
 
     return () => ctx.revert();
-  }, [width]);
+  }, []);
 
   const scaleValue = width > 1024 ? 95 : width > 767 ? 87 : 70;
 
@@ -152,17 +158,57 @@ const Tractor = () => {
       rotation={initialRotation}
     />
   );
+});
+
+const LoaderOverlay = ({ progress }) => {
+  return (
+    <div className="loader">
+      <p className="loading_text">
+        Loading... Pleas wait {Math.floor(progress)}%
+      </p>
+      <div
+        className="progress"
+        style={{ transform: `scaleX(${progress / 100})` }}
+      ></div>
+    </div>
+  );
 };
 
 export default function TractorAnim() {
   const { width } = useWindowSize();
+  const { progress, active } = useProgress();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Wait until model fully loads
+  useEffect(() => {
+    if (!active && progress === 100) {
+      const timer = setTimeout(() => setIsLoaded(true), 500); // small delay for smooth fade
+      return () => clearTimeout(timer);
+    }
+  }, [active, progress]);
+
+  // Scroll to top on mount
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
+
+  useEffect(() => {
+    // Ensure scroll is reset before anything else
+    window.history.scrollRestoration = "manual";
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+    // Optional: second safety flush after rendering
+    const timeout = setTimeout(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <>
-      {/* <div class="loader">
-        <p>Loading... Please wait</p>
-        <div class="progress" style={{transform: "scaleX(1)"}}></div>
-      </div> */}
+      {!isLoaded && <LoaderOverlay progress={progress} />}
+      {/* <LoaderOverlay progress={progress} /> */}
 
       <section className="tract_sec">
         <div className="tract_container">
