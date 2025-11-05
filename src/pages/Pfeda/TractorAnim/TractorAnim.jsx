@@ -21,11 +21,6 @@ import { useWindowSize } from "react-use";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// const Tractor = () => {
-//   const { scene } = useGLTF("/Pfeda/tractor.glb");
-//   return <primitive object={scene} scale={100} />;
-// };
-
 const Tractor = () => {
   const { scene } = useGLTF("/Pfeda/tractor.glb");
   const tractorRef = useRef();
@@ -164,6 +159,11 @@ export default function TractorAnim() {
 
   return (
     <>
+      {/* <div class="loader">
+        <p>Loading... Please wait</p>
+        <div class="progress" style={{transform: "scaleX(1)"}}></div>
+      </div> */}
+
       <section className="tract_sec">
         <div className="tract_container">
           <h1 className="title">
@@ -190,8 +190,6 @@ export default function TractorAnim() {
           {/* <div className="my_container"> */}
           <div>
             <div id="tractor_section">
-              {/* <div className="tract_wrapper"> */}
-              {/* <div className="sticky_wrapper"> */}
               <Canvas
                 camera={{ position: [5, 2, 0] }}
                 className="tractor_canvas"
@@ -202,7 +200,6 @@ export default function TractorAnim() {
                   <Tractor />
                 </Suspense>
               </Canvas>
-              {/* </div> */}
 
               {/* <div className="details_container">
                 <div className="details_wrapper">
@@ -236,7 +233,6 @@ export default function TractorAnim() {
                   />
                 </div>
               </div>
-              {/* </div> */}
             </div>
 
             <div className="content_wrapper">
@@ -254,20 +250,8 @@ export default function TractorAnim() {
         </div>
       </section>
 
-      {/* <div style={{ height: "500px", width: "100%" }}>
-        <Canvas camera={{ position: [0, 0, 5],fov: 1 }}>
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[3, 3, 3]} />
-          <Suspense fallback={null}>
-            <Tractor />
-          </Suspense>
-          <OrbitControls />
-        </Canvas>
-      </div> */}
       <section className="tractor_sec1">
         <h1>Section 1</h1>
-        {/* <img src="/Pfeda/tractor.png" width={780} height={551} alt="" /> */}
       </section>
       {/* <div style={{ height: "100vh" }}>section 2</div> */}
     </>
