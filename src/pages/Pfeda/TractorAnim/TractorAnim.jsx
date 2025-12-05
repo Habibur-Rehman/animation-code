@@ -73,6 +73,10 @@ const Tractor = React.memo(() => {
           //   markers: true,
         },
       });
+      ScrollTrigger.config({
+        fastScrollEnd: true, 
+        autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+      });
       tl.to(
         tractorRef.current.rotation,
         {
@@ -240,8 +244,20 @@ export default function TractorAnim() {
                 camera={{ position: [5, 2, 0] }}
                 className="tractor_canvas"
               >
-                <ambientLight intensity={0.6} />
-                <directionalLight position={[3, 3, 3]} />
+                <ambientLight intensity={1.2} />
+                <directionalLight
+                  position={[5, 5, 5]}
+                  intensity={10}
+                  // color={"#ffffff"}
+                />
+                {/* <pointLight position={[-5, 5, 5]} intensity={1.2} />
+                <spotLight
+                  position={[0, 5, 10]}
+                  angle={0.3}
+                  penumbra={1}
+                  intensity={1.2}
+                  color={"#ffffff"}
+                /> */}
                 <Suspense fallback={null}>
                   <Tractor />
                 </Suspense>
@@ -299,7 +315,9 @@ export default function TractorAnim() {
       <section className="tractor_sec1">
         <h1>Section 1</h1>
       </section>
-      {/* <div style={{ height: "100vh" }}>section 2</div> */}
+      <section className="tractor_sec1" style={{ backgroundColor: "red" }}>
+        section 2
+      </section>
     </>
   );
 }

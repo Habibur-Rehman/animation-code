@@ -13,4 +13,6 @@ export const playlistURL= "/playlist";
 export const reactPlayerURL= "/react-player";
 export const excelEntertainmentURL= "/excel-entertainment";
 export const tractorURL= "/tractor";
+export const pdfURL= "/pdf";
+export const flipBookURL= "/flipbook";
 

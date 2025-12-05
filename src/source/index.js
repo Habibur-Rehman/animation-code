@@ -102,6 +102,10 @@ export { default as tractorDetailsImg } from "./images/Pfeda/tractor-details.png
 export { default as tractorDetailsMbImg } from "./images/Pfeda/tractor-details-mb.png";
 export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
 
+// <================ PDF ====================>
+
+  export { default as samplePdf } from "./pdf/sample.pdf";
+
 export let images = {
   archinzaGal01: {
     image: require("./images/Archinza/alex-wong.png"),

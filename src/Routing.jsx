@@ -4,8 +4,10 @@ import {
   accordionIconURL,
   archinzaURL,
   excelEntertainmentURL,
+  flipBookURL,
   homeURL,
   mapURL,
+  pdfURL,
   playlistURL,
   printerURL,
   printerV2URL,
@@ -34,6 +36,9 @@ import ExcelEntertainment from "./pages/ExcelEntertainment/ExcelEntertainment";
 import Loader from "./components/Loader/Loader";
 import ExcelEntertainmentWithLoader from "./pages/ExcelEntertainment/ExcelEntertainmentWithLoader";
 import TractorAnim from "./pages/Pfeda/TractorAnim/TractorAnim";
+import Pdf from "./pages/Pdf/Pdf";
+import FlipBook from "./pages/Pdf/FlipBook";
+
 
 // const ExcelEntertainment = lazy(() =>
 //   import("./pages/ExcelEntertainment/ExcelEntertainment")
@@ -82,6 +87,8 @@ const Routing = () => {
         <Route path={videoDemoURL} element={<VideoDemo />} />
         <Route path={playlistURL} element={<Rat />} />
         <Route path={reactPlayerURL} element={<ReactPlayerPages />} />
+        <Route path={pdfURL} element={<Pdf />} />
+        <Route path={flipBookURL} element={<FlipBook />} />
         {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}
