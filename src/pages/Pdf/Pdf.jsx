@@ -26,7 +26,8 @@ const Pdf = () => {
   return (
     <section className="pdf_sec1">
       <Document
-        file={samplePdf}
+        // file={samplePdf}
+        file="/pdf/sample.pdf"
         onLoadSuccess={({ numPages }) => setNumPages(numPages)}
         onLoadError={(error) => console.error("PDF load error:", error)}
       >
