@@ -1,55 +1,17 @@
-/* 📘 Flipbook container section */
 .pdf_sec1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 0;
-  background-color: #f8f7f5; /* light neutral background */
-  min-height: 100vh;
-
-  /* 🧾 Flipbook wrapper (HTMLFlipBook) */
-  .page {
-    background: #fff;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  padding: 40px 0;
+  background: #f8f8f8;
 }
 
-/* 🧠 PDF page scaling + border fix */
-.react-pdf__Page__canvas {
-  width: 100% !important;
-  height: auto !important;
-  border-radius: 6px;
-}
-
-/* ✨ Optional: Add subtle page border */
-.page {
-  border: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-/* 🔄 Page flipping animation smoother */
 .flip-book {
-  transition: all 0.4s ease;
-  transform-origin: center;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* 🧭 Responsive behavior */
-@media (max-width: 768px) {
-  .pdf_sec1 {
-    padding: 40px 0;
-  }
-
-  .page {
-    width: 300px !important;
-    height: 450px !important;
-  }
-
-  .react-pdf__Page__canvas {
-    width: 100% !important;
-    height: auto !important;
-  }
+.page img {
+  display: block;
+  margin: auto;
 }
