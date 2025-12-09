@@ -38,6 +38,7 @@ import ExcelEntertainmentWithLoader from "./pages/ExcelEntertainment/ExcelEntert
 import TractorAnim from "./pages/Pfeda/TractorAnim/TractorAnim";
 import Pdf from "./pages/Pdf/Pdf";
 import FlipBook from "./pages/Pdf/FlipBook";
+import PdfV2 from "./pages/Pdf/Pdf-v2";
 
 
 // const ExcelEntertainment = lazy(() =>
@@ -88,6 +89,7 @@ const Routing = () => {
         <Route path={playlistURL} element={<Rat />} />
         <Route path={reactPlayerURL} element={<ReactPlayerPages />} />
         <Route path={pdfURL} element={<Pdf />} />
+        {/* <Route path={pdfURL} element={<PdfV2 />} /> */}
         <Route path={flipBookURL} element={<FlipBook />} />
         {/* <Route
             path={excelEntertainmentURL}
