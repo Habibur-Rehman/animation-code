@@ -4,13 +4,14 @@ import * as pdfjsLib from "pdfjs-dist";
 import "pdfjs-dist/web/pdf_viewer.css";
 import "./pdf.scss";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@5.4.449/build/pdf.worker.min.js`;
+// ✅ Use local worker to avoid CORS issues
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf/pdf.worker.min.js";
 
 const Pdf = () => {
   const [pages, setPages] = useState([]);
   const [bookSize, setBookSize] = useState({ width: 400, height: 600 });
 
-  // ✅ Auto resize flipbook based on viewport
+  // Auto resize flipbook based on viewport
   useEffect(() => {
     const updateSize = () => {
       const w = window.innerWidth;
@@ -23,31 +24,34 @@ const Pdf = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // ✅ Load and render PDF pages into images
+  // Load PDF pages into images
   useEffect(() => {
     const loadPdf = async () => {
-      const pdf = await pdfjsLib.getDocument("/pdf/sample.pdf").promise;
-      const pagesArray = [];
+      try {
+        const pdf = await pdfjsLib.getDocument("/pdf/sample.pdf").promise;
+        const pagesArray = [];
 
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
 
-        // Scale down just enough to fit nicely
-        const scale = 1.5;
-        const viewport = page.getViewport({ scale });
+          // Scale to fit nicely
+          const scale = 1.5;
+          const viewport = page.getViewport({ scale });
 
-        const canvas = document.createElement("canvas");
-        const context = canvas.getContext("2d");
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
 
-        // ✅ Keep aspect ratio and avoid cropping
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
 
-        await page.render({ canvasContext: context, viewport }).promise;
-        pagesArray.push(canvas.toDataURL("image/png"));
+          await page.render({ canvasContext: context, viewport }).promise;
+          pagesArray.push(canvas.toDataURL("image/png"));
+        }
+
+        setPages(pagesArray);
+      } catch (error) {
+        console.error("Error loading PDF:", error);
       }
-
-      setPages(pagesArray);
     };
 
     loadPdf();
@@ -80,7 +84,6 @@ const Pdf = () => {
                 justifyContent: "center",
               }}
             >
-              {/* ✅ Contain image, don’t crop */}
               <img
                 src={img}
                 alt={`Page ${i + 1}`}
