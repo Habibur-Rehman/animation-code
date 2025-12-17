@@ -104,7 +104,7 @@ export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
 
 // <================ PDF ====================>
 
-  export { default as samplePdf } from "./pdf/sample.pdf";
+export { default as samplePdf } from "./pdf/sample.pdf";
 
 export let images = {
   archinzaGal01: {
