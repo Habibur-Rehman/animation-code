@@ -6,6 +6,7 @@ import {
   excelEntertainmentURL,
   flipBookURL,
   homeURL,
+  mangoJuiceURL,
   mapURL,
   pdfURL,
   playlistURL,
@@ -39,6 +40,7 @@ import TractorAnim from "./pages/Pfeda/TractorAnim/TractorAnim";
 import Pdf from "./pages/Pdf/Pdf";
 import FlipBook from "./pages/Pdf/FlipBook";
 import PdfV2 from "./pages/Pdf/Pdf-v2";
+import MangoJuice from "./pages/MangoJuice/MangoJuice";
 
 
 // const ExcelEntertainment = lazy(() =>
@@ -91,6 +93,7 @@ const Routing = () => {
         <Route path={pdfURL} element={<Pdf />} />
         {/* <Route path={pdfURL} element={<PdfV2 />} /> */}
         <Route path={flipBookURL} element={<FlipBook />} />
+        <Route path={mangoJuiceURL} element={<MangoJuice />} />
         {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}

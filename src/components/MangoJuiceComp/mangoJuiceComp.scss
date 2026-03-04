@@ -1,0 +1,32 @@
+.mango-section {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  /* overflow not needed on the container itself */
+
+  .frame-holder {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden; /* keep image clipped to viewport */
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+}
+
+// ensure no body margin
+body {
+  margin: 0;
+}
+

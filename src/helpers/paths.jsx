@@ -15,4 +15,5 @@ export const excelEntertainmentURL= "/excel-entertainment";
 export const tractorURL= "/tractor";
 export const pdfURL= "/pdf";
 export const flipBookURL= "/flipbook";
+export const mangoJuiceURL= "/mango-juice";
 
