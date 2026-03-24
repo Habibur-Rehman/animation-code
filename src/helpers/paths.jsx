@@ -16,4 +16,5 @@ export const tractorURL= "/tractor";
 export const pdfURL= "/pdf";
 export const flipBookURL= "/flipbook";
 export const mangoJuiceURL= "/mango-juice";
+export const spiralURL= "/spiral";
 

@@ -17,6 +17,7 @@ import {
   rangoonURL,
   reactPlayerURL,
   silverPointURL,
+  spiralURL,
   tractorURL,
   videoDemoURL,
 } from "./helpers/paths";
@@ -41,6 +42,7 @@ import Pdf from "./pages/Pdf/Pdf";
 import FlipBook from "./pages/Pdf/FlipBook";
 import PdfV2 from "./pages/Pdf/Pdf-v2";
 import MangoJuice from "./pages/MangoJuice/MangoJuice";
+import Spiral from "./pages/Spiral/Spiral";
 
 
 // const ExcelEntertainment = lazy(() =>
@@ -94,6 +96,7 @@ const Routing = () => {
         {/* <Route path={pdfURL} element={<PdfV2 />} /> */}
         <Route path={flipBookURL} element={<FlipBook />} />
         <Route path={mangoJuiceURL} element={<MangoJuice />} />
+        <Route path={spiralURL} element={<Spiral />} />
         {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}

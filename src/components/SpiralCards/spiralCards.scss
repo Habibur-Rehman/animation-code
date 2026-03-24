@@ -1,0 +1,31 @@
+.spiral-section {
+  height: 200vh;
+  perspective: 1600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  overflow: hidden;
+}
+
+.spiral-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  transform-style: preserve-3d;
+  will-change: transform; // 🔥 improves stability
+}
+
+.card {
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backface-visibility: hidden; // 🔥 prevents flicker
+  transform-style: preserve-3d;
+}

@@ -1,0 +1,86 @@
+.spiral_sec2 {
+  .work2 {
+    height: 100vh;
+    position: relative;
+    background: rgba($color: #000000, $alpha: 0.5);
+  }
+
+  .gallery_box {
+    position: absolute;
+    // left: 50%;
+    left: 50%;
+    top: 44%;
+    transform: translate(-50%, -50%) rotateX(-10deg);
+    transform-style: preserve-3d;
+  }
+
+  .gallery_box_outer {
+    // width: 400px;
+    // height: 220px;
+    width: 315px;
+    height: 200px;
+    position: relative;
+    transform: perspective(1000px); // if reduced makes the viewing angle closer
+    transform-style: preserve-3d;
+  }
+
+  .gallery_box_in {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .card_numb {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+
+  .extra-space {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .spiral_sec2 {
+    .gallery_box_outer {
+      width: 260px;
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .spiral_sec2 {
+    .gallery_box_outer {
+      width: 260px;
+      height: 160px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .spiral_sec2 {
+    .gallery_box_outer {
+      width: 210px;
+      height: 120px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .spiral_sec2 {
+    .gallery_box_outer {
+      width: 150px;
+      height: 90px;
+    }
+  }
+}
