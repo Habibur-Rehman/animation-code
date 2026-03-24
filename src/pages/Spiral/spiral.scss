@@ -49,6 +49,13 @@
   }
 }
 
+.spiral_sec3 {
+  height: 100vh;
+  .work2 {
+    background: rgba($color: #000000, $alpha: 0.2);
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .spiral_sec2 {
     .gallery_box_outer {

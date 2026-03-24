@@ -18,11 +18,10 @@ const colors = [
   "orange",
 ];
 
-const Gallery3D = () => {
+const Gallery3DV2 = () => {
   const { width: windowWidth } = useWindowSize();
   const containerRef = useRef(null);
   const outerRef = useRef(null);
-  const cardRef = useRef(null);
 
   // console.log("y",(360 / colors?.length));
 
@@ -38,44 +37,30 @@ const Gallery3D = () => {
             : 220;
   console.log("radius", radius);
 
-  // useEffect(() => {
-  //   const ctx = gsap.context(() => {
-  //     const tl = gsap.timeline({
-  //       scrollTrigger: {
-  //         trigger: containerRef.current,
-  //         start: "top top",
-  //         end: "+=200%",
-  //         scrub: true,
-  //         pin: true,
-  //         markers: true, // enable for debugging
-  //       },
-  //     });
-
-  //     tl.to(outerRef.current, {
-  //       rotateY: 360,
-  //       ease: "none",
-  //       duration: 10,
-  //     });
-  //   }, containerRef);
-
-  //   return () => ctx.revert();
-  // }, []);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const anim = gsap.to(outerRef.current, {
-        rotateY: 360,
-        duration: 20,
-        ease: "none",
-        repeat: -1,
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "+=200%",
+          scrub: true,
+          pin: true,
+          markers: true, // enable for debugging
+        },
       });
 
-      // cardRef.current.addEventListener("mouseenter", () => anim.pause());
-      // cardRef.current.addEventListener("mouseleave", () => anim.resume());
-    }, cardRef);
+      tl.to(outerRef.current, {
+        rotateY: 360,
+        ease: "none",
+        duration: 10,
+      });
+    }, containerRef);
 
     return () => ctx.revert();
   }, []);
+
+
   return (
     <>
       <section className="work2" ref={containerRef}>
@@ -84,7 +69,6 @@ const Gallery3D = () => {
             {colors.map((color, i) => (
               <div
                 key={i}
-                // ref={cardRef}
                 className="gallery_box_in"
                 style={{
                   background: color,
@@ -100,11 +84,11 @@ const Gallery3D = () => {
         </div>
       </section>
 
-      {/* <section className="extra-space">
+      <section className="extra-space">
         <h1>Extra space just for demo, remove this</h1>
-      </section> */}
+      </section>
     </>
   );
 };
 
-export default Gallery3D;
+export default Gallery3DV2;
