@@ -126,12 +126,12 @@
       // object-fit: cover;
       // display: block;
 
-        height: 100%;
+      height: 100%;
       //   left: 0;
       //   position: absolute;
       //   top: 0;
-        width: 100%;
-        max-width: 100%;
+      width: 100%;
+      max-width: 100%;
     }
   }
 
@@ -184,3 +184,23 @@
   }
 }
 // <==================== Moving section animation end =======================>
+
+@media screen and (max-width: 767px) {
+  // <==================== Text animation start =======================>
+  .wedo_section {
+    .big_text {
+      font-size: 18vw;
+    }
+
+    .center_text {
+      .center_heading {
+        font-size: 10vw;
+
+        &:not(:last-child) {
+          margin-bottom: 0.2em;
+        }
+      }
+    }
+  }
+  // <==================== Text animation end =======================>
+}

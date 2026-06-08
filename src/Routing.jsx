@@ -43,9 +43,9 @@ import ExcelEntertainment from "./pages/ExcelEntertainment/ExcelEntertainment";
 import Loader from "./components/Loader/Loader";
 import ExcelEntertainmentWithLoader from "./pages/ExcelEntertainment/ExcelEntertainmentWithLoader";
 import TractorAnim from "./pages/Pfeda/TractorAnim/TractorAnim";
-import Pdf from "./pages/Pdf/Pdf";
-import FlipBook from "./pages/Pdf/FlipBook";
-import PdfV2 from "./pages/Pdf/Pdf-v2";
+// import Pdf from "./pages/Pdf/Pdf";
+// import FlipBook from "./pages/Pdf/FlipBook";
+// import PdfV2 from "./pages/Pdf/Pdf-v2";
 import MangoJuice from "./pages/MangoJuice/MangoJuice";
 import Spiral from "./pages/Spiral/Spiral";
 import Carousals from "./pages/Carousals/Carousals";
@@ -104,9 +104,9 @@ const Routing = () => {
         <Route path={videoDemoURL} element={<VideoDemo />} />
         <Route path={playlistURL} element={<Rat />} />
         <Route path={reactPlayerURL} element={<ReactPlayerPages />} />
-        <Route path={pdfURL} element={<Pdf />} />
+        {/* <Route path={pdfURL} element={<Pdf />} /> */}
         {/* <Route path={pdfURL} element={<PdfV2 />} /> */}
-        <Route path={flipBookURL} element={<FlipBook />} />
+        {/* <Route path={flipBookURL} element={<FlipBook />} /> */}
         <Route path={mangoJuiceURL} element={<MangoJuice />} />
         <Route path={spiralURL} element={<Spiral />} />
         <Route path={bannerURL} element={<Carousals />} />
