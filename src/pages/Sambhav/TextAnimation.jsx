@@ -3,11 +3,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useWindowSize } from "react-use";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const WeDoSection = () => {
   const sectionRef = useRef(null);
+  const { width: windowWidth } = useWindowSize();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -24,7 +26,7 @@ const WeDoSection = () => {
         .to(
           ".we_text",
           {
-            x: "-16vw",
+            x: windowWidth > 767 ? "-16vw" : "-100vw",
             ease: "none",
           },
           0,
@@ -32,7 +34,7 @@ const WeDoSection = () => {
         .to(
           ".do_text",
           {
-            x: "16vw",
+            x: windowWidth > 767 ?  "16vw" : "100vw",
             ease: "none",
           },
           0,
