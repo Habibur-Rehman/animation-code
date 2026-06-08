@@ -20,7 +20,7 @@
     width: 315px;
     height: 200px;
     position: relative;
-    transform: perspective(1000px); // if reduced makes the viewing angle closer
+    transform: perspective(1000px); // if reduced makes the viewing(camera) angle closer
     transform-style: preserve-3d;
   }
 

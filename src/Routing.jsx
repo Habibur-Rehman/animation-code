@@ -3,8 +3,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import {
   accordionIconURL,
   archinzaURL,
+  bannerURL,
   excelEntertainmentURL,
   flipBookURL,
+  flipCardsURL,
   homeURL,
   mangoJuiceURL,
   mapURL,
@@ -16,8 +18,11 @@ import {
   rangoonHoverURL,
   rangoonURL,
   reactPlayerURL,
+  reactThreeFiberURL,
+  sambhavURL,
   silverPointURL,
   spiralURL,
+  splineURL,
   tractorURL,
   videoDemoURL,
 } from "./helpers/paths";
@@ -43,6 +48,13 @@ import FlipBook from "./pages/Pdf/FlipBook";
 import PdfV2 from "./pages/Pdf/Pdf-v2";
 import MangoJuice from "./pages/MangoJuice/MangoJuice";
 import Spiral from "./pages/Spiral/Spiral";
+import Carousals from "./pages/Carousals/Carousals";
+import FlipCards from "./pages/FlipCards/FlipCards";
+import React3Fibre from "./pages/React3Fibre/React3Fibre";
+import SplineText from "./pages/Spline/SplineText";
+import SplineTextV2 from "./pages/Spline/SplineTextV2";
+import SplineTextV3 from "./pages/Spline/SplineTextV3";
+import Sambahv from "./pages/Sambhav/Sambhav";
 
 
 // const ExcelEntertainment = lazy(() =>
@@ -97,6 +109,13 @@ const Routing = () => {
         <Route path={flipBookURL} element={<FlipBook />} />
         <Route path={mangoJuiceURL} element={<MangoJuice />} />
         <Route path={spiralURL} element={<Spiral />} />
+        <Route path={bannerURL} element={<Carousals />} />
+        <Route path={flipCardsURL} element={<FlipCards />} />
+        <Route path={reactThreeFiberURL} element={<React3Fibre />} />
+        <Route path={splineURL} element={<SplineText />} />
+        <Route path={"/spline-v2"} element={<SplineTextV2 />} />
+        <Route path={"/spline-v3"} element={<SplineTextV3 />} />
+        <Route path={sambhavURL} element={<Sambahv />} />
         {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}

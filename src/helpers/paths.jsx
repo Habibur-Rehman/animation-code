@@ -17,4 +17,9 @@ export const pdfURL= "/pdf";
 export const flipBookURL= "/flipbook";
 export const mangoJuiceURL= "/mango-juice";
 export const spiralURL= "/spiral";
+export const bannerURL= "/banner";
+export const flipCardsURL= "/flip-cards";
+export const reactThreeFiberURL= "/react-three-fiber";
+export const splineURL= "/spline";
+export const sambhavURL= "/sambhav";
 

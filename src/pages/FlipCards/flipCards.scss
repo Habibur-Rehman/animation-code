@@ -1,0 +1,57 @@
+.split-section {
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  font-size: 42px;
+}
+
+.cards-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  perspective: 1200px;
+}
+
+.card {
+  position: absolute;
+  width: 280px;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔥 THIS creates ONE image split into 3 */
+.card:nth-child(1) img {
+  clip-path: inset(0 66.66% 0 0);
+}
+
+.card:nth-child(2) img {
+  clip-path: inset(0 33.33% 0 33.33%);
+}
+
+.card:nth-child(3) img {
+  clip-path: inset(0 0 0 66.66%);
+}
