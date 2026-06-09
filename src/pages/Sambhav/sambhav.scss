@@ -185,6 +185,59 @@
 }
 // <==================== Moving section animation end =======================>
 
+// <==================== Split Text section animation start =======================>
+.main-about {
+  position: relative;
+  min-height: 100vh;
+  background: #111;
+  color: #fff;
+
+  .helpers__item {
+    height: 100vh;
+  }
+
+  .content-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    padding: 0 5vw;
+  }
+
+  .about-content {
+    max-width: 70rem;
+    text-align: center;
+    font-size: 4vw;
+    line-height: 1.1;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+
+    .word {
+      display: inline-block;
+      margin-right: 0.25em;
+      perspective: 1000px;
+    }
+
+    .char {
+      display: inline-block;
+      transform-style: preserve-3d;
+    }
+  }
+}
+
+// <==================== Split Text section animation end =======================>
+
 @media screen and (max-width: 767px) {
   // <==================== Text animation start =======================>
   .wedo_section {

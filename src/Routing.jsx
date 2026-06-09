@@ -88,7 +88,8 @@ const Routing = () => {
     <>
       {/* <Suspense fallback={<Loader />}> */}
       <Routes>
-        <Route path={homeURL} element={<HomePage />} />
+        {/* <Route path={homeURL} element={<HomePage />} /> */}
+        <Route path={homeURL} element={<Sambahv />} />
         <Route path={printerURL} element={<PrinterAnimation />} />
         <Route path={printerV2URL} element={<PrinterAnimationV2 />} />
         <Route
