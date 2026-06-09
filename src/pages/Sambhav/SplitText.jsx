@@ -49,12 +49,12 @@ const SplitTextAbout = () => {
           {
             opacity: 0,
             // rotationY: 90,
-            z: -100,
+            // z: -100,
           },
           {
             opacity: 1,
             // rotationY: 0,
-            z: 0,
+            // z: 0,
             duration: 1,
             ease: "power2.out",
             // This staggers letters within the word
