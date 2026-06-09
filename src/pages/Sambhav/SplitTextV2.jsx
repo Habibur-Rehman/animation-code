@@ -5,7 +5,7 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const SplitTextAbout = () => {
+const SplitTextAboutV2 = () => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -55,4 +55,4 @@ const SplitTextAbout = () => {
   );
 };
 
-export default SplitTextAbout;
+export default SplitTextAboutV2;

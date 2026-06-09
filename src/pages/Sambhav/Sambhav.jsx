@@ -1,6 +1,6 @@
 import MovingBox from "./MovingBox";
 import "./sambhav.scss";
-import SplitTextAbout from "./SplitTextV2";
+import SplitTextAbout from "./SplitText";
 import WeDoSection from "./TextAnimation";
 
 const Sambahv = () => {

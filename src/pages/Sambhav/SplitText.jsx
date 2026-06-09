@@ -1,111 +1,61 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import React, { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
+import { SplitText } from "gsap/SplitText"; // Requires Club GSAP
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const AboutAnimation = () => {
+const SplitTextAbout = () => {
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
+  const textRefs = useRef([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const section = sectionRef.current;
+      // 1. Split the text into characters and words
+      const childSplit = new SplitText(textRefs.current, {
+        type: "chars, words",
+        charsClass: "char-unit",
+      });
 
-      const wrapper = section.querySelector(".content-wrapper");
-      const helpers = section.querySelectorAll(".helpers__item");
-      const contents = section.querySelectorAll(".about-content");
+      // 2. Set perspective on the words to enable 3D rotation
+      gsap.set(childSplit.words, { perspective: 1000 });
 
-      const masterTl = gsap.timeline({
+      // 3. Create the ScrollTrigger timeline
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: helpers[0],
-          endTrigger: helpers[1],
+          trigger: ".helpers__item:first-child",
+          endTrigger: ".helpers__item:last-child",
           start: "50% bottom",
           end: "70% top",
           scrub: true,
+          markers: true,
         },
       });
 
-      contents.forEach((item) => {
-        const text = item.querySelector(".about-content__text");
+      // 4. Animate every word at the same time (position parameter: 0)
+      childSplit.words.forEach((word) => {
+        const chars = word.querySelectorAll(".char-unit");
 
-        const split = new SplitText(text, {
-          type: "words,chars",
-          wordsClass: "split-word",
-          charsClass: "split-char",
-        });
-
-        gsap.set(split.words, {
-          perspective: 1000,
-        });
-
-        const wordTl = gsap.timeline();
-
-        split.words.forEach((word) => {
-          const chars = word.querySelectorAll(".split-char");
-
-          const charsTl = gsap.timeline();
-
-          charsTl
-            .fromTo(
-              chars,
-              {
-                opacity: 0,
-                rotationY: 90,
-                transformOrigin: "50% 50% -30",
-                willChange: "transform",
-              },
-              {
-                opacity: 1,
-                rotationY: 0,
-                duration: 0.72,
-                ease: "expo.out",
-                stagger: {
-                  each: 0.04,
-                  from: "end",
-                },
-              },
-            )
-            .to(chars, {
-              delay: 2.4,
-              opacity: 0,
-              rotationY: 90,
-              duration: 0.72,
-              ease: "expo.out",
-              stagger: {
-                each: 0.04,
-                from: "end",
-              },
-            });
-
-          wordTl.add(charsTl, `+=${Math.random() * 0.5}`);
-        });
-
-        masterTl.add(wordTl);
-      });
-
-      gsap.to(wrapper, {
-        yPercent: 25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: helpers[1],
-          start: "bottom bottom",
-          end: "50% top",
-          scrub: true,
-        },
-      });
-
-      gsap.from(wrapper, {
-        yPercent: -25,
-        ease: "none",
-        scrollTrigger: {
-          trigger: helpers[0],
-          start: "50% bottom",
-          end: "bottom bottom",
-          scrub: true,
-        },
+        tl.fromTo(
+          chars,
+          {
+            opacity: 0,
+            // rotationY: 90,
+            z: -100,
+          },
+          {
+            opacity: 1,
+            // rotationY: 0,
+            z: 0,
+            duration: 1,
+            ease: "power2.out",
+            // This staggers letters within the word
+            stagger: { each: 0.05, from: "end" },
+            // stagger: { each: 0.05, from: "start" },
+          },
+          0, // <--- This '0' makes all word animations start at the same time
+        );
       });
     }, sectionRef);
 
@@ -113,31 +63,44 @@ const AboutAnimation = () => {
   }, []);
 
   return (
-    <section className="main-about" ref={sectionRef}>
-      <div className="about-sticky">
-        <h2 className="content-wrapper">
-          <div className="about-content">
-            <div className="about-content__text">
-              WE DESIGN BESPOKE SOLUTIONS <br />
-              FOR ARCHITECTURE AND INTERIOR DESIGN
-            </div>
-          </div>
-
-          <div className="about-content">
-            <div className="about-content__text">
-              WE STRIVE FOR PERFECTION <br />
-              IN EVERY DETAIL
-            </div>
-          </div>
-        </h2>
+    <div
+      ref={sectionRef}
+      className="about-content"
+      // style={{ background: "#0a0a0a", color: "white" }}
+    >
+      <div
+        className="sticky-wrapper"
+        // style={{
+        //   height: "100vh",
+        //   display: "flex",
+        //   alignItems: "center",
+        //   justifyContent: "center",
+        //   position: "sticky",
+        //   top: 0,
+        // }}
+      >
+        <div
+          ref={containerRef}
+          className="text_wrapper"
+          // style={{ textAlign: "center", maxWidth: "900px" }}
+        >
+          <h2 ref={(el) => (textRefs.current[0] = el)} className="split-char">
+            Boutique <span style={{ color: "#950606" }}>developers</span>,
+            crafting residences FOR A MODERN LIVING.
+          </h2>
+          {/* <h2 ref={el => textRefs.current[1] = el} className="split-char">
+            FOR MODERN ARCHITECTURE
+          </h2> */}
+        </div>
       </div>
 
+      {/* Scroll area */}
       <div className="helpers">
-        <div className="helpers__item"></div>
-        <div className="helpers__item"></div>
+        <div className="helpers__item" style={{ height: "100vh" }}></div>
+        <div className="helpers__item" style={{ height: "100vh" }}></div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default AboutAnimation;
+export default SplitTextAbout;
