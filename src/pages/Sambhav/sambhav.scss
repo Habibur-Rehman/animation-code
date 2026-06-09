@@ -238,10 +238,14 @@
 // }
 
 .about-content {
-  background-color: #000;
-  
+  height: 100vh;
+  // background-color: #000;
+  overflow: hidden;
+  position: relative;
+
   .sticky-wrapper {
     height: 100vh;
+    // height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,6 +265,11 @@
     font-weight: 600;
     line-height: 1.023;
     text-transform: uppercase;
+  }
+
+  .char-unit {
+    display: inline-block;
+    will-change: transform, opacity;
   }
 }
 

@@ -24,12 +24,19 @@ const SplitTextAbout = () => {
       // 3. Create the ScrollTrigger timeline
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".helpers__item:first-child",
-          endTrigger: ".helpers__item:last-child",
-          start: "50% bottom",
-          end: "70% top",
+          trigger: sectionRef.current,
+          // endTrigger: ".about-content",
+          // trigger: ".helpers__item:first-child",
+          // endTrigger: ".helpers__item:last-child",
+          start: "-30% top",
+          // end: "bottom bottom",
+          end: "+=50%",
+          // start: "50% bottom",
+          // end: "100% 50%",
+          // start: "50% bottom",
+          // end: "70% top",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -95,10 +102,10 @@ const SplitTextAbout = () => {
       </div>
 
       {/* Scroll area */}
-      <div className="helpers">
+      {/* <div className="helpers">
         <div className="helpers__item" style={{ height: "100vh" }}></div>
         <div className="helpers__item" style={{ height: "100vh" }}></div>
-      </div>
+      </div> */}
     </div>
   );
 };
