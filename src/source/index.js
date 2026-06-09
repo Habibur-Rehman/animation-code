@@ -103,6 +103,7 @@ export { default as tractorDetailsMbImg } from "./images/Pfeda/tractor-details-m
 export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
 
 // <================ PDF ====================>
+  // export { default as sambhavMovingBox } from "./images/sambhav/moving-box.webp";
   export { default as sambhavMovingBox } from "./images/sambhav/moving-box_2.jpg";
 
 // <================ PDF ====================>

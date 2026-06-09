@@ -51,9 +51,9 @@ import Spiral from "./pages/Spiral/Spiral";
 import Carousals from "./pages/Carousals/Carousals";
 import FlipCards from "./pages/FlipCards/FlipCards";
 import React3Fibre from "./pages/React3Fibre/React3Fibre";
-import SplineText from "./pages/Spline/SplineText";
-import SplineTextV2 from "./pages/Spline/SplineTextV2";
-import SplineTextV3 from "./pages/Spline/SplineTextV3";
+// import SplineText from "./pages/Spline/SplineText";
+// import SplineTextV2 from "./pages/Spline/SplineTextV2";
+// import SplineTextV3 from "./pages/Spline/SplineTextV3";
 import Sambahv from "./pages/Sambhav/Sambhav";
 
 
@@ -88,7 +88,8 @@ const Routing = () => {
     <>
       {/* <Suspense fallback={<Loader />}> */}
       <Routes>
-        <Route path={homeURL} element={<HomePage />} />
+        {/* <Route path={homeURL} element={<HomePage />} /> */}
+        <Route path={homeURL} element={<Sambahv />} />
         <Route path={printerURL} element={<PrinterAnimation />} />
         <Route path={printerV2URL} element={<PrinterAnimationV2 />} />
         <Route
@@ -112,9 +113,9 @@ const Routing = () => {
         <Route path={bannerURL} element={<Carousals />} />
         <Route path={flipCardsURL} element={<FlipCards />} />
         <Route path={reactThreeFiberURL} element={<React3Fibre />} />
-        <Route path={splineURL} element={<SplineText />} />
+        {/* <Route path={splineURL} element={<SplineText />} />
         <Route path={"/spline-v2"} element={<SplineTextV2 />} />
-        <Route path={"/spline-v3"} element={<SplineTextV3 />} />
+        <Route path={"/spline-v3"} element={<SplineTextV3 />} /> */}
         <Route path={sambhavURL} element={<Sambahv />} />
         {/* <Route
             path={excelEntertainmentURL}
