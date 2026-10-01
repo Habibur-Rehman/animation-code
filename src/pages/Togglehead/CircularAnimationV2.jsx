@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./circularAnimationV2.scss";
 import { logo01Togglehead, logo02Togglehead } from "../../source";
-import { main } from "@popperjs/core";
 
 export const logoData = [
   { id: 1, img: logo01Togglehead, title: "Accessibility" },
@@ -24,6 +23,7 @@ const orbits = [
   {
     id: "outer",
     radius: 50.78125,
+    mRadius: 30,
     count: 6,
     offset: 0,
     logoOffset: 0,
@@ -33,6 +33,7 @@ const orbits = [
   {
     id: "middle",
     radius: 37.8,
+    mRadius: 15.2,
     count: 6,
     offset: 30,
     logoOffset: 2,
@@ -42,6 +43,7 @@ const orbits = [
   {
     id: "inner",
     radius: 21.9,
+    mRadius: 6,
     count: 6,
     offset: 0,
     logoOffset: 4,
