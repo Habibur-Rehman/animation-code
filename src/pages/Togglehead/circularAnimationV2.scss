@@ -1,0 +1,84 @@
+.orbit_mainV2 {
+  .orbit_sec1 {
+    background-color: rgba(#000000, 0.5);
+    padding-top: 5em;
+    overflow: hidden;
+
+    .luxury_orbit {
+      width: 100%;
+      max-width: 101.5625em;
+      height: 50.78125em;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      border-radius: 50%;
+    }
+
+    .circle_wrapper {
+      position: relative;
+      height: 100%;
+
+      // Each orbit shares the same center: bottom-center of the wrapper
+      .orbit {
+        position: absolute;
+        inset: 0;
+        pointer-events: none; // let only the logos receive hover
+      }
+
+      .orbit_ring {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: calc(2 * var(--orbit-radius));
+        height: calc(2 * var(--orbit-radius));
+        transform: translate(-50%, -50%);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      .orbit_motion_container {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: 0;
+        height: 0;
+        transform-origin: center center;
+      }
+
+      .icon_wrapper {
+        border-radius: 50%;
+        width: 7.875em;
+        height: 7.875em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: calc(-7.875em / 2);
+        top: calc(-7.875em / 2);
+        cursor: pointer;
+        pointer-events: auto;
+        z-index: 2;
+        background: #1e1e1e;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        transform: rotate(var(--angle))
+          translateY(calc(-1 * var(--orbit-radius)))
+          rotate(calc(-1 * var(--angle)));
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          border-color: rgba(255, 255, 255, 0.8);
+          box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+        }
+
+        .icon {
+          max-width: 65%;
+          max-height: 65%;
+          object-fit: contain;
+          display: block;
+        }
+      }
+    }
+  }
+}
