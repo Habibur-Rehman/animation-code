@@ -106,6 +106,11 @@ export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
   // export { default as sambhavMovingBox } from "./images/sambhav/moving-box.webp";
   export { default as sambhavMovingBox } from "./images/sambhav/moving-box_2.jpg";
 
+// <================ Togglehead ====================>
+export { default as semiCircle } from "./images/Togglehead/big_line.png";
+export { default as logo01Togglehead } from "./images/Togglehead/logo_1.svg";
+export { default as logo02Togglehead } from "./images/Togglehead/logo_2.svg";
+
 // <================ PDF ====================>
 
 export { default as samplePdf } from "./pdf/sample.pdf";

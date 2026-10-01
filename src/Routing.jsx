@@ -19,10 +19,13 @@ import {
   rangoonURL,
   reactPlayerURL,
   reactThreeFiberURL,
+  sambhavProjectURL,
+  sambhavProjectV2URL,
   sambhavURL,
   silverPointURL,
   spiralURL,
   splineURL,
+  toggleheadURL,
   tractorURL,
   videoDemoURL,
 } from "./helpers/paths";
@@ -55,6 +58,9 @@ import React3Fibre from "./pages/React3Fibre/React3Fibre";
 // import SplineTextV2 from "./pages/Spline/SplineTextV2";
 // import SplineTextV3 from "./pages/Spline/SplineTextV3";
 import Sambahv from "./pages/Sambhav/Sambhav";
+import ProjectTransition from "./pages/Sambhav/project";
+import ProjectTransitionV2 from "./pages/Sambhav/projectV2";
+import Togglehead from "./pages/Togglehead/Togglehead";
 
 
 // const ExcelEntertainment = lazy(() =>
@@ -117,6 +123,8 @@ const Routing = () => {
         <Route path={"/spline-v2"} element={<SplineTextV2 />} />
         <Route path={"/spline-v3"} element={<SplineTextV3 />} /> */}
         <Route path={sambhavURL} element={<Sambahv />} />
+        <Route path={sambhavProjectURL} element={<ProjectTransition />} />
+        <Route path={sambhavProjectV2URL} element={<ProjectTransitionV2 />} />
         {/* <Route
             path={excelEntertainmentURL}
             element={<ExcelEntertainment />}
@@ -126,6 +134,7 @@ const Routing = () => {
           element={<ExcelEntertainmentWithLoader />}
         />
         <Route path={tractorURL} element={<TractorAnim />} />
+        <Route path={toggleheadURL} element={<Togglehead />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       {/* </Suspense> */}

@@ -22,4 +22,7 @@ export const flipCardsURL= "/flip-cards";
 export const reactThreeFiberURL= "/react-three-fiber";
 export const splineURL= "/spline";
 export const sambhavURL= "/sambhav";
+export const sambhavProjectURL= "/sambhav/project";
+export const sambhavProjectV2URL= "/sambhav/project-v2";
+export const toggleheadURL= "/togglehead";
 

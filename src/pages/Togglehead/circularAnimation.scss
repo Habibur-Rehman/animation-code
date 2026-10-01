@@ -1,0 +1,77 @@
+.orbit_sec1 {
+  background-color: rgba(#000000, 0.5);
+  padding-top: 5em;
+  overflow: hidden;
+
+  .luxury_orbit {
+    width: 100%;
+    max-width: 101.5625em;
+    height: 50.78125em;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    // overflow: hidden;
+  }
+  .circle_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform-origin: center;
+    height: 100%;
+    --orbit-radius: 50.78125em;
+
+    .first_outer_cirlcle {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .orbit_motion_container {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      width: 0;
+      height: 0;
+      transform-origin: center center;
+    }
+
+    .icon_wrapper {
+      border-radius: 50%;
+      width: 7.875em;
+      height: 7.875em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      /* Center the 7.875em badge exactly on origin (0, 0) */
+      left: calc(-7.875em / 2);
+      top: calc(-7.875em / 2);
+      cursor: pointer;
+      z-index: 2;
+      background: #1e1e1e;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      /* Exact orbital transform: rotate by angle -> shift up by radius -> un-rotate badge */
+      transform: rotate(var(--angle)) translateY(calc(-1 * var(--orbit-radius)))
+        rotate(calc(-1 * var(--angle)));
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+      }
+
+      .icon {
+        max-width: 65%;
+        max-height: 65%;
+        object-fit: contain;
+        display: block;
+      }
+    }
+  }
+}
