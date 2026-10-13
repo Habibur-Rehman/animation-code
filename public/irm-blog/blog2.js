@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //   pin: true,
       pinSpacing: true, // Enables proper layout calculation without double-scroll jitter
       invalidateOnRefresh: true,
-      markers: true,
+      // markers: true,
     },
   });
 
