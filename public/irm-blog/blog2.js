@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollTrigger: {
       trigger: banner,
       start: "top top",
-      end: "+=100%",
+      end: "+=200%",
       scrub: true,
       //   pin: true,
       pinSpacing: true, // Enables proper layout calculation without double-scroll jitter
