@@ -387,7 +387,8 @@
     .ch {
       &:last-child {
         .line-icon .icon {
-          left: -0.5em;
+          left: 0.5em;
+          // left: -0.5em;
         }
       }
     }

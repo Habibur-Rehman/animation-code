@@ -110,6 +110,8 @@ export { default as tractorBgVideo } from "./images/Pfeda/pfeda_vid.mp4";
 export { default as semiCircle } from "./images/Togglehead/big_line.png";
 export { default as logo01Togglehead } from "./images/Togglehead/logo_1.svg";
 export { default as logo02Togglehead } from "./images/Togglehead/logo_2.svg";
+export { default as phoneTogglehead } from "./images/Togglehead/phone.png";
+export { default as badgeTogglehead } from "./images/Togglehead/badge.png";
 
 // <================ PDF ====================>
 
