@@ -167,7 +167,8 @@ export default function SectionStackV5() {
         if (i > 0) {
           const A = E - ENTER - HOLD; // enter start
           tl.set(
-            cur.querySelectorAll(".th-img, .th-pill, .th-text, .th-badge"),
+            // cur.querySelectorAll(".th-img, .th-pill, .th-text, .th-badge"),
+            cur.querySelectorAll(".th-pill, .th-text, .th-badge"),
             { opacity: 0 },
             0
           ).fromTo(
