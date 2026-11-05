@@ -139,7 +139,7 @@ export default function SectionStackV5() {
           .fromTo(
             extras(p),
             { opacity: 1 },
-            { opacity: 1, duration: EXIT * 0.8, immediateRender: false },
+            { opacity: 0, duration: EXIT * 0.7, immediateRender: false },
             at
           );
       };
