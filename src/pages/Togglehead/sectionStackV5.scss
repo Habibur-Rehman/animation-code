@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400&family=Outfit:wght@400&display=swap");
+
+// .th_container {
+//     background: #1a1a1a;
+// }
+
+.th-wrap {
+  --u: calc(100vw / 1720);
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #1a1a1a;
+  color: #fff;
+
+  .th-panel {
+    position: absolute;
+    inset: 0;
+    background: #1a1a1a;
+    will-change: transform;
+  }
+  .th-stage {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc((100vh - 600 * var(--u)) / 2);
+    height: calc(600 * var(--u));
+  }
+  .th-stage > * {
+    position: absolute;
+  }
+
+  /* title + badge: as before */
+  .th-title {
+    top: 0;
+    transform: translateX(-50%);
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    font-size: calc(150 * var(--u));
+    line-height: calc(150 * var(--u));
+    letter-spacing: calc(3 * var(--u));
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0;
+    z-index: 1;
+    will-change: transform;
+  }
+  .th-mask {
+    display: block;
+    overflow: hidden;
+  }
+  .th-title-line {
+    display: block;
+  }
+  .th-badge {
+    will-change: transform;
+  }
+
+  /* grid: pills left | image center | paragraph right */
+  .th-row {
+    left: 0;
+    right: 0;
+    top: calc(91 * var(--u));
+    display: grid;
+    grid-template-columns: 1fr calc(326 * var(--u)) 1fr;
+    align-items: start;
+    z-index: 2;
+  }
+  .th-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(21 * var(--u)) calc(16 * var(--u));
+    max-width: calc(480 * var(--u));
+    padding-top: calc(139 * var(--u));
+  }
+  .th-img {
+    height: calc(362 * var(--u));
+    pointer-events: none;
+  }
+  .th-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .th-text {
+    justify-self: end;
+    width: calc(460 * var(--u));
+    margin: 0;
+    padding-top: calc(139 * var(--u));
+    font-family: "DM Sans", sans-serif;
+    font-weight: 200;
+    font-size: calc(18 * var(--u));
+    line-height: calc(26 * var(--u));
+  }
+  .th-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(14 * var(--u)) calc(20 * var(--u));
+    border: 0.5px solid #fff;
+    border-radius: 200px;
+    font-family: "DM Sans", sans-serif;
+    font-size: calc(16 * var(--u));
+    line-height: calc(16 * var(--u));
+    letter-spacing: calc(0.32 * var(--u));
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 700px) {
+  .th-wrap {
+    --u: calc(100vw / 900);
+  }
+}

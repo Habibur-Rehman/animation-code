@@ -28,6 +28,8 @@ export default function Togglehead() {
       <section className="orbit_motion_containerV2">
         <CircularAnimationV2 />
       </section>
+
+      <section className="bottom_section"></section>
     </main>
   );
 }
