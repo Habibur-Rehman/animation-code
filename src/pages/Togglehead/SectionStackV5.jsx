@@ -2,7 +2,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { badgeTogglehead, phoneTogglehead } from "../../source";
+import { badgeTogglehead, creatorsNetworkTogglehead, digitalTogglehead, paidMediaTogglehead, phoneTogglehead, plateTogglehead, studiosTogglehead } from "../../source";
 import "./sectionStackV5.scss";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -24,6 +24,7 @@ const LOREM =
 // Only the title and badge x-positions are per-section.
 const SECTIONS = [
   {
+    img: phoneTogglehead,
     title: "Marketing",
     titleX: 860.5,
     badgeX: 1260,
@@ -31,6 +32,7 @@ const SECTIONS = [
     pills: ["Branding", "Strategy", "Social Media", "Campaign Management"],
   },
   {
+    img: studiosTogglehead,
     title: "Studios",
     titleX: 861.5,
     badgeX: 1259,
@@ -43,6 +45,7 @@ const SECTIONS = [
     ],
   },
   {
+    img: digitalTogglehead,
     title: "Digital",
     titleX: 860.5,
     badgeX: 1259,
@@ -55,6 +58,7 @@ const SECTIONS = [
     ],
   },
   {
+    img: paidMediaTogglehead,
     title: "Paid Media",
     titleX: 860.5,
     badgeX: 1257,
@@ -67,6 +71,7 @@ const SECTIONS = [
     ],
   },
   {
+    img: creatorsNetworkTogglehead,
     title: "Creators Network",
     titleX: 861,
     badgeX: 1259,
@@ -189,50 +194,55 @@ export default function SectionStackV5() {
   return (
     <section className="th_container">
       {/* <div className="my_container"> */}
-        <div ref={wrap} className="th-wrap">
-          {SECTIONS.map((s, i) => (
-            <div className="th-panel" key={s.title} style={{ zIndex: i + 1 }}>
-              <div className="th-stage">
-                {/* Main title (unchanged) */}
-                <h2 className="th-title" style={{ left: u(s.titleX) }}>
-                  <span className="th-mask">
-                    <span className="th-title-line">{s.title}</span>
-                  </span>
-                </h2>
+      <div ref={wrap} className="th-wrap">
+        {SECTIONS.map((s, i) => (
+          <div className="th-panel" key={s.title} style={{ zIndex: i + 1 }}>
+            <div className="th-stage">
+              {/* Main title (unchanged) */}
+              <h2 className="th-title" style={{ left: u(s.titleX) }}>
+                <span className="th-mask">
+                  <span className="th-title-line">{s.title}</span>
+                </span>
+              </h2>
 
-                {/* Grid: pills | image | paragraph */}
-                <div className="th-row my_container">
-                  <div className="th-left">
-                    {s.pills.map((label) => (
-                      <span className="th-pill" key={label}>
-                        {label}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="th-img">
-                    <img alt="" src={phoneTogglehead} />
-                  </div>
-
-                  <p className="th-text">{s.text}</p>
+              {/* Grid: pills | image | paragraph */}
+              <div className="th-row my_container">
+                <div className="th-left">
+                  {s.pills.map((label) => (
+                    <span className="th-pill" key={label}>
+                      {label}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Badge (unchanged) */}
-                <img
-                  alt=""
-                  className="th-badge"
-                  src={badgeTogglehead}
-                  style={{
-                    left: u(s.badgeX),
-                    top: u(434),
-                    width: u(148.55),
-                    height: u(148.55),
-                  }}
-                />
+                <div className="th-img">
+                  <img alt={s.title} src={s.img} className="main_img" />
+                  <img alt="plate" src={plateTogglehead} className="plate" />
+                </div>
+                <div className="th-text">
+                  {/* <p className="th-text">{s.text}</p> */}
+                  <p>{s.text}</p>
+
+                  {/* Badge (unchanged) */}
+                  <img
+                    alt=""
+                    className="th-badge"
+                    src={badgeTogglehead}
+                    style={{
+                      // left: u(s.badgeX),
+                      left: 0,
+                      top: u(434),
+                      width: u(148.55),
+                      height: u(148.55),
+                    }}
+                  />
+                </div>
               </div>
+            
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
       {/* </div> */}
     </section>
   );

@@ -53,6 +53,7 @@
   }
   .th-badge {
     will-change: transform;
+    margin-top: 5em;
   }
 
   /* grid: pills left | image center | paragraph right */
@@ -73,14 +74,24 @@
     padding-top: calc(139 * var(--u));
   }
   .th-img {
-    height: calc(362 * var(--u));
+    // height: calc(362 * var(--u));
     pointer-events: none;
   }
   .th-img img {
     width: 100%;
-    height: 100%;
+    // height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
+  }
+  .th-img .plate {
+    display: block;
+    margin: -3em auto 0;
+    max-width: 80%;
+    z-index: -1;
+    position: relative;
+    animation: plateMotion 4s ease-in-out infinite;
+    transform-origin: center center;
   }
   .th-text {
     justify-self: end;
@@ -107,6 +118,30 @@
     white-space: nowrap;
   }
 }
+
+@keyframes plateMotion {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(8px, -12px) rotate(5deg);
+  }
+
+  50% {
+    transform: translate(0, -20px) rotate(0deg);
+  }
+
+  75% {
+    transform: translate(-8px, -10px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+
 @media (max-width: 700px) {
   .th-wrap {
     --u: calc(100vw / 900);

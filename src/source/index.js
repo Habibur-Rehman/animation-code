@@ -111,6 +111,11 @@ export { default as semiCircle } from "./images/Togglehead/big_line.png";
 export { default as logo01Togglehead } from "./images/Togglehead/logo_1.svg";
 export { default as logo02Togglehead } from "./images/Togglehead/logo_2.svg";
 export { default as phoneTogglehead } from "./images/Togglehead/phone.png";
+export { default as studiosTogglehead } from "./images/Togglehead/studios.png";
+export { default as digitalTogglehead } from "./images/Togglehead/digital.png";
+export { default as paidMediaTogglehead } from "./images/Togglehead/paid_media.png";
+export { default as creatorsNetworkTogglehead } from "./images/Togglehead/creators_network.png";
+export { default as plateTogglehead } from "./images/Togglehead/plate.png";
 export { default as badgeTogglehead } from "./images/Togglehead/badge.png";
 
 // <================ PDF ====================>
