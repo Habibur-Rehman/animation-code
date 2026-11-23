@@ -1,172 +1,166 @@
-function setBackgroundHeight() {
-  const image = document.querySelector(".blog_banner_custom");
-  // const background = document.querySelector(".background-img");
-  const background = document.querySelector(".single-entry-wrap");
+// function setBackgroundHeight() {
+//   const image = document.querySelector(".blog_banner_custom");
+//   // const background = document.querySelector(".background-img");
+//   const background = document.querySelector(".single-entry-wrap");
 
-  if (image && background) {
-    background.style.marginTop = `${image.getBoundingClientRect().height}px`;
-  }
-}
+//   if (image && background) {
+//     background.style.marginTop = `${image.getBoundingClientRect().height}px`;
+//   }
+// }
 
-const image = document.querySelector(".blog_banner_custom");
+// const image = document.querySelector(".blog_banner_custom");
 
-if (image) {
-  if (image.complete) {
-    setBackgroundHeight();
-  } else {
-    image.addEventListener("load", setBackgroundHeight, { once: true });
-  }
+// if (image) {
+//   if (image.complete) {
+//     setBackgroundHeight();
+//   } else {
+//     image.addEventListener("load", setBackgroundHeight, { once: true });
+//   }
 
-  window.addEventListener("resize", setBackgroundHeight);
-  console.log("Event listener added for window resize");
-}
+//   window.addEventListener("resize", setBackgroundHeight);
+//   console.log("Event listener added for window resize");
+// }
 
 // gsap start
-
-// document.addEventListener("DOMContentLoaded", () => {
-//     if (typeof gsap === "undefined" ||
-//         typeof ScrollTrigger === "undefined") {
-//       return;
-//     }
-
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     const banner = document.querySelector(".single-billboard");
-//     const images = banner?.querySelectorAll(".blog_banner_custom");
-//     const keyTakeAways = banner?.querySelector(".keyTakeAways");
-//     const article = document.querySelector(".single-entry-wrap");
-
-//     if (!banner || !images?.length || !keyTakeAways || !article) {
-//       return;
-//     }
-
-//     gsap.set(images, {
-//       scale: 1,
-//       transformOrigin: "center center"
-//     });
-
-//     gsap.set(keyTakeAways, {
-//       autoAlpha: 0
-//     });
-
-//     gsap.set(article, {
-//       y: 0
-//     });
-
-//     const timeline = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: banner,
-//         start: "top top",
-//         // end: () => `+=${window.innerHeight * 2.5}`,
-//         end: () => `+=${window.innerHeight * 1}`,
-//         scrub: 1,
-//         pin: true,
-//         pinSpacing: false,
-//         anticipatePin: 1,
-//         invalidateOnRefresh: true,
-//         markers: true
-//       }
-//     });
-
-//     // Step 1: Zoom the responsive banner image.
-//     timeline.to(images, {
-//       scale: 1.35,
-//       duration: 1.2,
-//       ease: "none"
-//     });
-
-//     // Step 2: Reveal Key Takeaways.
-//     timeline.to(keyTakeAways, {
-//       autoAlpha: 1,
-//       duration: 0.8,
-//       ease: "none"
-//     });
-
-//     // Step 3: Bring the article upward over the banner.
-//     // timeline.fromTo(
-//     //   article,
-//     //   {
-//     //     // y: () => window.innerHeight
-//     //     y: () => window.innerHeight
-//     //   },
-//     //   {
-//     //     y: 0,
-//     //     duration: 1.5,
-//     //     ease: "none"
-//     //   }
-//     // );
-
-//     window.addEventListener("load", () => {
-//       ScrollTrigger.refresh();
-//     });
-
-//     window.addEventListener("resize", () => {
-//       ScrollTrigger.refresh();
-//     });
-//   });
-
+// window.addEventListener("load", () => {
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
     return;
   }
 
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   const banner = document.querySelector(".single-billboard");
   const images = banner?.querySelectorAll(".blog_banner_custom");
-  const keyTakeAways = banner?.querySelector(".keyTakeAways");
+  // All three copies (desktop / iPad / mobile); only the visible one shows via CSS
+  const keyTakeAways = banner?.querySelectorAll(".keyTakeAways");
   const article = document.querySelector(".single-entry-wrap");
 
-  if (!banner || !images?.length || !keyTakeAways || !article) {
+  if (!banner || !images?.length || !keyTakeAways?.length || !article) {
     return;
   }
 
-  // Pre-set positions using percentage-based transforms for smooth hardware acceleration
-  gsap.set(images, { scale: 1, transformOrigin: "center center" });
-  gsap.set(keyTakeAways, { autoAlpha: 0 });
-  // NOTE: We intentionally avoid transform (yPercent/y) on the article because
-  // CSS transforms create a new stacking context, which breaks position:fixed
-  // inside theiaStickySidebar. Use marginTop instead.
-  gsap.set(article, { marginTop: () => banner.offsetHeight });
-  // gsap.set(article, { marginTop: () => article.offsetHeight });
+  // Wrapper carries the offset, so the pinned article never has its margin touched
+  let offsetWrap = article.parentElement.classList.contains("entry-offset-wrap")
+    ? article.parentElement
+    : null;
 
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: banner,
-      start: "top top",
-      end: "+=200%",
-      scrub: true,
-      //   pin: true,
-      pinSpacing: true, // Enables proper layout calculation without double-scroll jitter
-      invalidateOnRefresh: true,
-      // markers: true,
-    },
+  if (!offsetWrap) {
+    offsetWrap = document.createElement("div");
+    offsetWrap.className = "entry-offset-wrap";
+    article.parentNode.insertBefore(offsetWrap, article);
+    offsetWrap.appendChild(article);
+  }
+
+  const getActiveImageHeight = () => {
+    const activeImage = [...images].find(
+      (img) => img.getBoundingClientRect().height > 0
+    );
+    return activeImage?.getBoundingClientRect().height || 0;
+  };
+
+  // Inline !important beats any stylesheet rule (iPad/mobile overrides)
+  const setCardOpacity = (value) => {
+    keyTakeAways.forEach((card) => {
+      card.style.setProperty("opacity", value, "important");
+      card.style.setProperty(
+        "visibility",
+        value > 0.01 ? "visible" : "hidden",
+        "important"
+      );
+    });
+  };
+
+  const clearCardStyles = () => {
+    keyTakeAways.forEach((card) => {
+      card.style.removeProperty("opacity");
+      card.style.removeProperty("visibility");
+    });
+  };
+
+  const mm = gsap.matchMedia();
+
+  // Desktop + iPad
+   mm.add("(min-width: 768px)", () => {
+    const state = { opacity: 0 };
+    setCardOpacity(0);
+
+    gsap.set(images, { scale: 1, transformOrigin: "center center" });
+
+    // Offset below the banner, and pull the page back up by the same amount
+    // so there is no empty gap at the bottom once the article slides up.
+    const applyOffsets = () => {
+      const h = getActiveImageHeight();
+      offsetWrap.style.marginTop = h + "px";
+      offsetWrap.style.marginBottom = -h + "px";
+    };
+    applyOffsets();
+
+    const timeline = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: {
+        trigger: offsetWrap,
+        start: () => "top " + getActiveImageHeight(),
+        end: () => "+=" + window.innerHeight * 2,  // total scroll distance for BOTH phases
+        scrub: 1.2,                                // smoothing: higher = smoother/laggier
+        pin: article,
+        pinSpacing: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onRefreshInit: applyOffsets,
+      },
+    });
+
+    timeline
+      // Phase 1: zoom + fade in (timeline 0 -> 1)
+      .to(images, { scale: 1.35, duration: 1 }, 0)
+      .to(
+        state,
+        {
+          opacity: 1,
+          duration: 2,
+          ease: "power2.inOut",
+          onUpdate: () => setCardOpacity(state.opacity),
+        },
+        0
+      )
+      // Phase 2: article slides up over the banner (timeline 1 -> 2.5)
+      .fromTo(
+        article,
+        { y: 0 },
+        {
+          y: () => -getActiveImageHeight(),
+          duration: 2.5,
+          ease: "power1.inOut",
+        },
+        1
+      );
+
+    return () => {
+      timeline.scrollTrigger?.kill(true);
+      timeline.kill();
+      clearCardStyles();
+      offsetWrap.style.removeProperty("margin-top");
+      offsetWrap.style.removeProperty("margin-bottom");
+      gsap.set([...images, article], { clearProps: "all" });
+    };
   });
 
-  // STEP 1: Zoom banner and reveal keyTakeAways simultaneously
-  timeline
-    .to(images, {
-      scale: 1.35,
-      duration: 1,
-      ease: "none",
-    })
-    .to(
-      keyTakeAways,
-      {
-        autoAlpha: 1,
-        duration: 2,
-        ease: "power2.inOut",
-      },
-      "<",
-    );
+  // Mobile: no GSAP animation
+  mm.add("(max-width: 767px)", () => {
+    clearCardStyles();
+    offsetWrap.style.removeProperty("margin-top");
+    offsetWrap.style.removeProperty("margin-bottom");
+    gsap.set(images, { clearProps: "transform" });
+  });
 
-  // STEP 2: Slide article smoothly over the fixed banner
-  // Using marginTop instead of yPercent/y to avoid creating a CSS stacking
-  // context that would break position:fixed inside theiaStickySidebar.
-  timeline.to(article, {
-    marginTop: 0,
-    duration: 1.5,
-    ease: "power2.inOut",
+  // Re-measure after images load and on rotation
+  images.forEach((img) => {
+    if (!img.complete) img.addEventListener("load", () => ScrollTrigger.refresh());
+  });
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => ScrollTrigger.refresh(), 300);
   });
 });
 // gsap end
